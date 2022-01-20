@@ -1,0 +1,19 @@
+<!--pages/mycourse/notice/notice.wxml-->
+<block wx:if="{{notice.length>0}}">
+  <notice-list
+    wx:for="{{notice}}"
+    id="{{index}}"
+    content="{{item.info}}"
+    time="{{item.s_time}}"
+    wx:index="index"
+    wx:item="item"
+    wx:key="id">
+  </notice-list>
+</block>
+
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有通知</text>
+</view>
+

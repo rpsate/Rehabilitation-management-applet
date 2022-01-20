@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">
+  课程信息
+  </view>
+  <view class="content">
+    <index-btn text="我的课程" src="/pages/images/my_course.png" bindtap="myCourse"></index-btn>
+    <index-btn text="选择课程" src="/pages/images/select_course.png" bindtap="selectCourse"></index-btn>
+    <index-btn text="课程推荐" src="/pages/images/recommend.png" bindtap="commentCourse"></index-btn>
+  </view>
+</view>
+
+<view class="container">
+  <view class="title">
+  考勤信息
+  </view>
+  <view class="content">
+    <index-btn text="我的考勤" src="/pages/images/attendance.png" bindtap="myAttend"></index-btn>
+    <index-btn text="补打卡" src="/pages/images/supplement.png" bindtap="reAttend"></index-btn>
+  </view>
+</view>
+
+<view class="container">
+  <view class="title">
+  其他
+  </view>
+  <view class="content">
+    <index-btn text="上课提醒" tip="{{notice_count}}" src="/pages/images/message.png" bindtap="notice"></index-btn>
+    <index-btn text="我的档案" src="/pages/images/me.png" bindtap="myinfo"></index-btn>
+    <index-btn text="注册进度" src="/pages/images/process.png" bindtap="myProcess"></index-btn>
+  </view>
+</view>

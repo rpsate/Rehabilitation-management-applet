@@ -1,0 +1,19 @@
+<!--pages/login.wxml-->
+<view>
+  <image class="logo" src="/pages/images/logo.png" mode="widthFix"></image>
+</view>
+
+<view class="container">
+  <view class="item">
+    <image src="/pages/images/username.png" mode="widthFix"></image>
+    <input placeholder="请输入账号" type="number" maxlength="11" bindinput="changePhone" />
+  </view>
+
+  <view class="item">
+    <image src="/pages/images/passwd.png" mode="widthFix"></image>
+    <input placeholder="请输入验证码" maxlength="6" type="text" bindinput="changeVerifyCode" />
+    <text class="verify-btn {{verifyDisable?'disable':''}}" bindtap="getVerifyCode">{{verifyText}}</text>
+  </view>
+
+  <button class='btn-confirm' disabled="{{disable}}" bindtap='submit'>登陆</button>
+</view>

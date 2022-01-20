@@ -1,0 +1,90 @@
+/* components/process-list.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 700rpx;
+  background-color: #ffffff;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.container-inner {
+  display: flex;
+  flex-direction: column;
+  width: 685rpx;
+}
+
+.line {
+  width: 15rpx;
+  background-color: #cccccc;
+}
+
+.line_active {
+  background-color: #1a8be9;
+}
+.active {
+  color: #1a8be9;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  width: 685rpx;
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.left, 
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left {
+  width: 305rpx;
+  padding-left: 22rpx;
+}
+
+.right {
+  width: 380rpx;
+  justify-content: space-between;
+  align-self:flex-end;
+  text-align: right;
+  padding-right: 22rpx;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.tip,
+.time,
+.persion {
+  font-size: 14px;
+  font-size: #666666;
+}
+
+.persion {
+  padding-top: 20rpx;
+}
+
+.padding-top {
+  padding-top: 26rpx;
+}
+
+
+/*底部内容*/
+.bottom {
+  border-top: #efefef solid 1px;
+  width: 685rpx;
+}
+
+.bottom text {
+  display: block;
+  font-size: 14px;
+  padding: 12rpx 20rpx;
+  color: #666666;
+}

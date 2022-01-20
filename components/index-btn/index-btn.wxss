@@ -1,0 +1,39 @@
+/* components/index-btn.wxss */
+/* components/subject/subject.wxss */
+.container {
+  width: 179rpx; /*border 1px*/
+  height: 179rpx; /*border 1px*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:0;
+}
+
+.icon {
+  width: 70rpx;
+}
+
+.text {
+  position: relative;
+  font-size: 14px;
+  padding-top: 20rpx;
+  color: #666666;
+  text-align: center;
+}
+
+.tip {
+  position: absolute;
+  top: 10rpx;
+  right: -20rpx;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 9px;
+  width: 30rpx;
+  height: 30rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
+  color: #ffffff;
+  background-color: #1a8be9;
+}

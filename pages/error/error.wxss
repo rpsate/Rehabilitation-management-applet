@@ -1,0 +1,31 @@
+/* pages/error/error.wxss */
+page {
+  background-color: #ffffff;
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-top: 100rpx;
+  margin-bottom: 100rpx;
+  width: 300rpx;
+}
+
+.tip {
+  font-size: 18px;
+  color: #666666;
+}
+
+.btn-refresh {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 300rpx;
+  background-color: #1a8be9;
+  color: #ffffff;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+.btn-refresh:active {
+  background-color: #7dbef4;
+}

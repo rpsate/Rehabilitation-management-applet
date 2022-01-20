@@ -1,0 +1,27 @@
+<!--pages/login/register-process/process.wxml-->
+<view class="container">
+  <text class='title'>审批进度</text>
+  
+  <process-list
+    wx:for="{{lists}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:id="{{item.id}}"
+    title="{{item.title}}"
+    tip='{{item.tip}}'
+    time="{{item.time}}"
+    persion="{{item.persion}}"
+    reason="{{item.reason}}"
+    type="{{item.type}}"
+    active="{{item.active}}">
+  </process-list>
+</view>
+
+<view>
+  <block wx:if="{{status==0}}">
+    <button class='btn-confirm btn-bottom' bindtap='submit'>确认</button>
+  </block>
+  <block wx:else>
+    <button class='btn-confirm btn-bottom' bindtap='modifyInfo'>重新填写注册信息</button>
+  </block>
+</view>

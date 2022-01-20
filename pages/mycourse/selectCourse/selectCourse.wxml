@@ -1,0 +1,29 @@
+<!--pages/mycourse/selectCourse/selectCourse.wxml-->
+<block wx:if="{{course.length>0}}">
+  <course-list
+    wx:for="{{course}}"
+    wx:item="item"
+    wx:index="index"
+    wx:key="id"
+    course="{{item.name}}"
+    teacher="{{item.teacher}}"
+    time="{{item.s_time}}"
+    isSelect="{{isSelect[index]}}"
+    type="0"
+    id="{{index}}"
+    bind:getDetail="getDetail"
+    bind:selectCourse="selectCourse">
+  </course-list>
+
+  <view>
+    <button class='btn-confirm' bindtap='submit'>提交</button>
+  </view>
+</block>
+
+
+
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有可选课程</text>
+</view>

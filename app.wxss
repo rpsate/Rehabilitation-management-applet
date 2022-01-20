@@ -1,0 +1,33 @@
+/**app.wxss**/
+page {
+  -webkit-overflow-scrolling: touch;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #333333;
+}
+
+.btn-confirm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 700rpx;
+  background-color: #1a8be9;
+  color: #ffffff;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+
+.btn-confirm:active {
+  background-color: #7dbef4;
+}
+
+button[disabled].btn-confirm {
+  background-color: #7dbef4;
+  color: #fefefe;
+}
+.disable {
+  color: #fefefe;
+}

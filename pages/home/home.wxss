@@ -1,0 +1,31 @@
+/* pages/home/home.wxss */
+page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #0f80dd;
+}
+
+.container {
+    position: relative;
+    bottom: 160rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 280rpx;
+    height: 190rpx;
+}
+
+.slogan {
+    color: #ffffff;
+}
+
+.loading {
+    width: 100rpx;
+    height: 100rpx;
+}

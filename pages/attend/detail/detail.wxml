@@ -1,0 +1,8 @@
+<!--pages/attend/detail/detail.wxml-->
+<attend-detail wx:if="{{attend.length>0}}" data="{{attend}}" bind:reAttend="reAttend"></attend-detail>
+
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有考勤信息</text>
+</view>

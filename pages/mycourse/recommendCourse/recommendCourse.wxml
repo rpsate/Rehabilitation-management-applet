@@ -1,0 +1,51 @@
+<!--pages/mycourse/mycourse/mycourse.wxml-->
+<view class='top-bth'>
+    <view class="{{course_status==0?'active':''}}" bindtap="getIncompleteCourse">未完成</view>
+    <view class="{{course_status==1?'active':''}}" bindtap="getCompleteCourse">已完成</view>
+</view>
+
+
+<view class="container" wx:if='{{s_data[course_status].length>0 || r_data[course_status].length>0}}'>
+  <course-list
+    wx:for="{{s_data[course_status]}}"
+    wx:item="item"
+    wx:index="index"
+    wx:key="id"
+    course="{{item.courseName}}"
+    teacher="{{item.teacher}}"
+    time="{{item.s_time}}"
+    type="{{item.c_type}}"
+    id="{{index}}"
+    data-data="s_data"
+    data-status="{{course_status}}"
+    data-cid="{{item.cid}}"
+    bind:getDetail="getDetail"
+    bind:doComment="doComment"
+    bind:viewComment="viewComment">
+  </course-list>
+
+  <course-list
+    wx:for="{{r_data[course_status]}}"
+    wx:item="item"
+    wx:index="index"
+    wx:key="id"
+    course="{{item.courseName}}"
+    teacher="{{item.teacher}}"
+    time="{{item.s_time}}"
+    type="{{item.c_type}}"
+    id="{{index}}"
+    data-data="r_data"
+    data-status="{{course_status}}"
+    data-cid="{{item.cid}}"
+    bind:getDetail="getDetail"
+    bind:doComment="doComment"
+    bind:viewComment="viewComment">
+  </course-list>
+
+  
+</view>
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有课程信息</text>
+</view>

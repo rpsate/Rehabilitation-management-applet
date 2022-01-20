@@ -1,0 +1,142 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/login/register/register",
+          "pathName": "pages/login/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/process/process",
+          "pathName": "pages/login/process/process",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login/login",
+          "pathName": "pages/login/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/attend/attend/attend",
+          "pathName": "pages/attend/attend/attend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/attend/detail/detail",
+          "pathName": "pages/attend/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/attend/reattend/reattend",
+          "pathName": "pages/attend/reattend/reattend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/attend/process/process",
+          "pathName": "pages/attend/process/process",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/courseDetail/courseDetail",
+          "pathName": "pages/mycourse/courseDetail/courseDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/commentPost/commentPost",
+          "pathName": "pages/mycourse/commentPost/commentPost",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/commentDetail/commentDetail",
+          "pathName": "pages/mycourse/commentDetail/commentDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/selectCourse/selectCourse",
+          "pathName": "pages/mycourse/selectCourse/selectCourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/me/me/me",
+          "pathName": "pages/me/me/me",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/me/myinfo/myinfo",
+          "pathName": "pages/me/myinfo/myinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/me/evaluation/evaluation",
+          "pathName": "pages/me/evaluation/evaluation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycourse/notice/notice",
+          "pathName": "pages/mycourse/notice/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/error/error",
+          "pathName": "pages/error/error",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/register/register",
+          "pathName": "pages/login/register/register",
+          "query": "",
+          "scene": null,
+          "partialCompile": {
+            "enabled": true,
+            "pages": []
+          }
+        },
+        {
+          "name": "pages/mycourse/recommendCourse/recommendCourse",
+          "pathName": "pages/mycourse/recommendCourse/recommendCourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

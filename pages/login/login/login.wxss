@@ -1,0 +1,57 @@
+/* pages/login.wxss */
+page {
+  background-color: #ffffff;
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-top: 100rpx;
+  margin-bottom: 60rpx;
+  width: 300rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 730rpx;
+  height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item image {
+  width: 45rpx;
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+}
+
+.item input {
+  display: flex;
+  height: 100rpx;
+  flex-grow: 1;
+  float: left;
+}
+
+.verify-btn {
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 14px;
+  color: #1a8be9;
+  padding-right: 22rpx;
+}
+
+.verify-btn:active,
+.disable {
+  color: #7dbef4;
+}

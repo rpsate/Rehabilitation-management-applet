@@ -1,0 +1,13 @@
+<!--components/attend-detail/attend-detail.wxml-->
+<view class="table">
+  <view class="thead">
+    <text>日期</text>
+    <text style="text-align: center;">打卡时间</text>
+    <text style="text-align: right;">状态</text>
+  </view>
+  <view class="tbody" wx:for="{{data}}" wx:index="index" wx:item="item" wx:key="id">
+    <text>{{item[0]}}</text>
+    <text style="text-align: center;">{{item[1]}}</text>
+    <text style="text-align: right;" class="{{item[2]==0?'':'active'}}" id="{{index}}" bindtap="reAttend">{{state[item[2]]}}</text>
+  </view>
+</view>

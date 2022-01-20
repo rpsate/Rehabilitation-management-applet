@@ -1,0 +1,50 @@
+<!--pages/me/evaluation/evaluation.wxml-->
+<view class="container" wx:for="{{data}}" wx:for-index="index" wx:for-item="item" wx:key="id" id="{{index}}">
+  <view class="item">
+    <text>评估方法：</text>
+    <text>{{item.methodName}}</text>
+  </view>
+
+  <view class="item">
+    <text>评估类型：</text>
+    <text>{{type[item.type]}}</text>
+  </view>
+
+  <view class="item">
+    <text>评估结果：</text>
+    <text>{{item.result}}</text>
+  </view>
+
+  <view class="item">
+    <text>评估人：</text>
+    <text>{{item.createName}}</text>
+  </view>
+
+  <view class="item">
+    <text>评估时间：</text>
+    <text>{{item.s_time}}</text>
+  </view>
+
+  <view class="item">
+    <text>备注信息：</text>
+    <text>{{item.remark?item.remark:''}}</text>
+  </view>
+
+  <block wx:if="{{imagesList[index].length>0}}">
+    <text class='update-title'>图片</text>
+    <view class='image'>
+      <view class='image-box' wx:for="{{imagesList[index]}}" wx:for-index="imgindex" wx:for-item="imgitem" wx:key="id" id="{{imgindex}}">
+          <image src='{{baseUrl+imgitem}}' data-index="{{index}}" data-id="{{imgindex}}" mode='aspectFill' bindtap='previewImage'></image>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx: wx:if="{{data.length>0}}">
+  <button class='btn-confirm' bindtap='back'>返回</button>
+</view>
+
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有评估信息</text>
+</view>

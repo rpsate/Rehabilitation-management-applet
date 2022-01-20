@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/notice/notice",
+    "pages/login/login/login",
+    "pages/login/register/register",
+    "pages/login/process/process",
+    "pages/attend/attend/attend",
+    "pages/attend/detail/detail",
+    "pages/attend/reattend/reattend",
+    "pages/attend/process/process",
+    "pages/mycourse/mycourse/mycourse",
+    "pages/mycourse/recommendCourse/recommendCourse",
+    "pages/mycourse/courseDetail/courseDetail",
+    "pages/mycourse/commentPost/commentPost",
+    "pages/mycourse/commentDetail/commentDetail",
+    "pages/mycourse/notice/notice",
+    "pages/mycourse/selectCourse/selectCourse",
+    "pages/me/me/me",
+    "pages/me/myinfo/myinfo",
+    "pages/me/evaluation/evaluation",
+    "pages/error/error"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0f80dd",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#7A7E83",
+    "selectedColor": "#0f80dd",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/pages/images/index2.png",
+        "selectedIconPath": "/pages/images/index.png"
+      },
+      {
+        "pagePath": "pages/notice/notice",
+        "text": "通知",
+        "iconPath": "/pages/images/notice2.png",
+        "selectedIconPath": "/pages/images/notice.png"
+      },
+      {
+        "pagePath": "pages/me/me/me",
+        "text": "我的信息",
+        "iconPath": "/pages/images/i2.png",
+        "selectedIconPath": "/pages/images/i.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的信息",
+  "usingComponents": {
+    "my-info": "/components/myInfo/myInfo",
+    "menu-list": "/components/menuList/menuList"
+  }
+}

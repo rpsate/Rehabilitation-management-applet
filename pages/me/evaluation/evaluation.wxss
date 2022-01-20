@@ -1,0 +1,94 @@
+/* pages/me/evaluation/evaluation.wxss */
+page {
+  background-color: #efefef;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 700rpx;
+  min-height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item text {
+  display: block;
+  font-size: 16px;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+}
+
+.item text:last-child {
+  max-width: 540rpx;
+  word-wrap: break-word;
+}
+
+.update-title {
+  font-size: 14px;
+  color: #888;
+  margin-top: 8px;
+  padding-left: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.image {
+  width: 700rpx;
+  display: block;
+  background-color: #ffffff;
+}
+
+.image-box {
+  float: left;
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  padding-top: 25rpx;
+  padding-right: 22rpx;
+  padding-bottom: 25rpx;
+}
+
+.image-box image {
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 0;
+}
+
+.not-data {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 915rpx;
+}
+
+.not-data image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.tip-title {
+  padding-top: 12px;
+  font-size: 14px;
+  color: #aaa
+}
+
+.tip {
+  padding-top: 8px;
+  padding-bottom:25px;
+  font-size: 14px;
+  color: #aaa
+}

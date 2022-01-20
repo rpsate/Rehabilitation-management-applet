@@ -1,0 +1,54 @@
+/* components/myInfo/myInfo.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #0f80dd;
+  padding: 40rpx;
+}
+
+.user-image,
+.user-image image {
+  border-radius:60rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  padding-left: 36rpx;
+}
+
+.name {
+  font-size:16px;
+  font-weight:bold;
+}
+
+button {
+  border: none;
+  background-color: initial;
+  line-height: normal;
+  padding:0;
+  margin: 0;
+  color: #ffffff;
+}
+
+button::after {
+  border: none;
+}
+
+button:active {
+  color: #ffffff;
+  background-color: initial;
+}
+
+.tip {
+  margin-top:5px;
+  font-size:12px;
+}
+
+.yellow {
+  color:#f29821;
+}

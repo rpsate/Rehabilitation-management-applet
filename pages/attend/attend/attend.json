@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考勤信息",
+  "usingComponents": {
+    "attend-list": "/components/attend-list/attend-list"
+  }
+}

@@ -1,0 +1,32 @@
+/* pages/mycourse/selectCourse/selectCourse.wxss */
+course-list {
+  margin-top: 30rpx;
+}
+
+.not-data {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 915rpx;
+}
+
+.not-data image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.tip-title {
+  padding-top: 12px;
+  font-size: 14px;
+  color: #aaa
+}
+
+.tip {
+  padding-top: 8px;
+  padding-bottom:25px;
+  font-size: 14px;
+  color: #aaa
+}

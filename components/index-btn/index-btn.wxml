@@ -1,0 +1,8 @@
+<!--components/index-btn.wxml-->
+<view class="container">
+  <image class="icon" mode="widthFix" src="{{src}}"></image>
+  <text class="text">
+    <text wx:if="{{tip!=''}}" class="tip">{{tip}}</text>
+    <text>{{text}}</text>
+  </text>
+</view>

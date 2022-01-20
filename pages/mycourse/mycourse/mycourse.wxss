@@ -1,0 +1,72 @@
+/* pages/mycourse/mycourse/mycourse.wxss */
+
+.top-bth {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 100rpx;
+  width: 750rpx;
+  line-height: 100rpx;
+  font-size: 16px;
+  color: #888;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.top-bth view {
+  display: block;
+  text-align: center;
+  width: 50%;
+}
+
+.active {
+  font-weight: bold;
+  color: #1a8be9;
+}
+
+.container {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  width: 700rpx;
+  padding-bottom: 30rpx;
+}
+
+course-list {
+  margin-top: 30rpx;
+}
+
+.not-data {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 915rpx;
+}
+
+.not-data image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.tip-title {
+  padding-top: 12px;
+  font-size: 14px;
+  color: #aaa
+}
+
+.tip {
+  padding-top: 8px;
+  padding-bottom:25px;
+  font-size: 14px;
+  color: #aaa
+}
+
+ .hidden {
+   display: none;
+ }

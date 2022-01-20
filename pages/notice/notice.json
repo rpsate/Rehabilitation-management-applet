@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "notice-list": "/components/notice-list/notice-list"
+  },
+  "navigationBarTitleText": "通知"
+}

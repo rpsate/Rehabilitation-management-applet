@@ -1,0 +1,41 @@
+/* pages/mycourse/commentDetail/commentDetail.wxss */
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 700rpx;
+  height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item text,
+.item picker {
+  display: block;
+  font-size: 16px;
+  line-height: 100rpx;
+}
+
+.comment {
+  display: block;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+  line-height: 26px;
+  width: 700rpx;
+}
+
+.comment text:last-child {
+  color: #666666;
+}

@@ -1,0 +1,41 @@
+/* pages/attend/attend/attend.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  width: 700rpx;
+  padding-bottom: 30rpx;
+}
+
+.title {
+  font-size: 16px;
+  color: #888;
+  margin-top: 16rpx;
+  text-align: left;
+}
+
+attend-list {
+  margin-top: 30rpx;
+}
+
+.not-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 915rpx;
+}
+
+.not-data image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.tip {
+  padding-top: 8px;
+  padding-bottom:25px;
+  font-size: 14px;
+  color: #aaa
+}

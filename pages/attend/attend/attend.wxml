@@ -1,0 +1,23 @@
+<!--pages/attend/attend/attend.wxml-->
+<view class="container" wx:if='{{data!=""}}'>
+  <attend-list
+  wx:for="{{data}}"
+  wx:item="item"
+  wx:index="index"
+  wx:key="id"
+  id="{{index}}"
+  title="{{item.s_months}}"
+  times="{{item.days1}}"
+  times-less="{{item.days0-item.days1}}"
+  data-sid="{{item.sid}}"
+  data-months="{{item.months}}"
+  bind:getDetail="getDetail">
+</attend-list>
+<!-- days0 应打卡天数 days1 实际打卡天数-->
+  
+</view>
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有考勤信息</text>
+</view>

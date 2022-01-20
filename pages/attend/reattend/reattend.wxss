@@ -1,0 +1,39 @@
+/* pages/attend/reattend/reattend.wxss */
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 700rpx;
+  height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item text,
+.item picker {
+  display: block;
+  font-size: 16px;
+  line-height: 100rpx;
+}
+
+.reason {
+  display: block;
+  width: 700rpx;
+  padding-top: 22rpx;
+  min-height: 500rpx;
+  border-bottom: #efefef solid 1px;
+  color: #666666;
+  line-height: 26px;
+}

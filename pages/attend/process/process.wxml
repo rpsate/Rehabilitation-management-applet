@@ -1,0 +1,33 @@
+<!--pages/attend/process/process.wxml-->
+<view class="container">
+  <view class="item">
+    <text>日期：</text>
+    <text>{{time}}</text>
+  </view>
+  <view class="reason">
+    <text>原因：</text>
+    <text>{{reason}}</text>
+  </view>
+</view>
+<view class="process">
+  <text class="process-title">审批进度</text>
+
+  <process-list
+    wx:for="{{data}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:id="{{item.id}}"
+    title="{{item.title}}"
+    tip='{{item.tip}}'
+    time="{{item.time}}"
+    persion="{{item.persion}}"
+    reason="{{item.reason}}"
+    type="{{item.type}}"
+    active="{{item.active}}">
+  </process-list>
+
+</view>
+
+<view>
+  <button class='btn-confirm' bindtap='back'>确认</button>
+</view>

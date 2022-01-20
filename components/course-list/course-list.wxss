@@ -1,0 +1,72 @@
+/* components/course-list/course-list.wxss */
+.container {
+  display: flex;
+  width: 700rpx;
+  background-color: #ffffff;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.line {
+  width: 15rpx;
+  background-color: #1a8be9;
+}
+
+.container-inner {
+  display: flex;
+  flex-direction: column;
+  width: 685rpx;
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.container-inner>view {
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+.course {
+  font-weight: bold;
+}
+
+.teacher,
+.time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #666666;
+  padding-top: 12rpx;
+  font-size: 14px;
+}
+
+.btn {
+  min-width: 120rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1a8be9;
+  border-radius: 5rpx;
+  transition: all 500ms;
+  border: #1a8be9 solid 1px;
+}
+
+.btn:active {
+  background-color: #7dbef4;
+}
+
+.disable,
+.disable:active{
+  background-color: #cccccc;
+  border-color: #cccccc;
+  color: #ffffff;
+}
+
+.not-select,
+.not-select:active{
+  background-color: #ffffff;
+  border-color: #1a8be9;
+  color: #1a8be9;
+}

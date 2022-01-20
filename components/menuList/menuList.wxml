@@ -1,0 +1,12 @@
+<!--components/menuList/menuList.wxml-->
+<view class='container'>
+    <view class='container-inner' wx:for="{{lists}}" wx:key="index">
+        <view class='list' bindtap='onChice' id='{{index}}'>
+            <view class='content'>
+                <image src='{{item[0]}}'></image>
+               <text>{{item[1]}}</text>
+            </view>
+            <image src='./images/sm_right_gray.png'></image>
+        </view>
+    </view>
+</view>

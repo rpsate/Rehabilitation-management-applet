@@ -1,0 +1,8 @@
+/* pages/me/me/me.wxss */
+my-info {
+  width: 750rpx;
+}
+
+menu-list {
+  width: 750rpx;
+}

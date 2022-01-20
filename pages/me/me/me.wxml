@@ -1,0 +1,4 @@
+<!--pages/me/me/me.wxml-->
+<my-info src="{{loginInfo.avatarUrl}}" name="{{loginInfo.nickName}}" login="{{login}}" bind:getUserInfo="getLoginInfo"/>
+
+<menu-list bind:chice="goOther" lists="{{otherList}}"/>

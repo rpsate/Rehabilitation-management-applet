@@ -1,0 +1,8 @@
+<!--pages/error/error.wxml-->
+<view>
+  <image class="logo" src="/pages/images/logo.png" mode="widthFix"></image>
+</view>
+
+<view class="tip">网络错误，请稍后再试！</view>
+
+<button class='btn-refresh' bindtap='refresh' disabled="{{disabled}}">刷新</button>

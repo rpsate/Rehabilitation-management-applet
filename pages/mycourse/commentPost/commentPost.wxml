@@ -1,0 +1,30 @@
+<!--pages/mycourse/commentPost/commentPost.wxml-->
+<view class="container">
+  <view class="item">
+    <text>课程名称：</text>
+    <text>{{course.courseName}}</text>
+  </view>
+
+  <view class="item">
+    <text>老师：</text>
+    <text>{{course.teacher}}</text>
+  </view>
+
+  <view class="item">
+    <text>上课时间：</text>
+    <text>{{course.s_time}}</text>
+  </view>
+
+
+  <view class="item">
+    <text>评价：</text>
+    <picker range="{{comment}}" bindchange="changeComment">{{comment[comment_index]}}</picker>
+  </view>
+</view>
+
+<!-- 评价 -->  
+<textarea class="comment" placeholder="请填写评价内容" bindinput="inputText"></textarea>
+
+<view>
+  <button class='btn-confirm' bindtap='submit'>提交</button>
+</view>

@@ -1,0 +1,58 @@
+/* components/attend-list/attend-list.wxss */
+.container {
+  display: flex;
+  width: 700rpx;
+  background-color: #ffffff;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.line {
+  width: 15rpx;
+  background-color: #1a8be9;
+}
+
+.container-inner {
+  display: flex;
+  flex-direction: column;
+  width: 685rpx;
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.container-inner>view {
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.times,
+.times-less {
+  color: #666666;
+  padding-top: 12rpx;
+  font-size: 14px;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 120rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1a8be9;
+  border-radius: 5rpx;
+  transition: all 500ms;
+  border: #1a8be9 solid 1px;
+}
+
+.btn:active {
+  background-color: #7dbef4;
+}

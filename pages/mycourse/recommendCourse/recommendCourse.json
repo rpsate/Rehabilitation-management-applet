@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "推荐课程",
+  "usingComponents": {
+    "course-list": "/components/course-list/course-list"
+  }
+}

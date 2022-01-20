@@ -1,0 +1,27 @@
+<!--components/process-list.wxml-->
+<view class="container">
+  <view class="line {{active?'line_active':''}}"></view>
+  <view class="container-inner">
+    <view class="top">
+      <view class="left">
+        <view class="title">
+          <text class="{{active?'active':''}}">{{title}}</text>
+        </view>
+        <view wx:if="{{persion}}" class="persion">
+          <text>审批人：{{persion}}</text>
+        </view>
+      </view>
+      <view class="right">
+        <view class="tip">
+          <text>{{tip}}</text>
+        </view>
+        <view wx:if="{{time}}" class="time {{tip?'padding-top':''}}">
+          <text>{{time}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{type==1}}" class="bottom">
+      <text>{{reason}}</text>
+    </view>
+  </view>
+</view>

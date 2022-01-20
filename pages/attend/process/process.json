@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "process-list": "/components/process-list/process-list"
+  },
+  "navigationBarTitleText": "补卡进度"
+}

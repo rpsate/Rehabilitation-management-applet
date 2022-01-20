@@ -1,0 +1,36 @@
+<!--pages/mycourse/courseDetail/courseDetail.wxml-->
+<view class="container">
+  <view class="item">
+    <text>课程名称：</text>
+    <text>{{course.courseName}}</text>
+  </view>
+
+  <view class="item">
+    <text>老师：</text>
+    <text>{{course.teacher}}</text>
+  </view>
+
+  <view class="item">
+      <text>上课时间：</text>
+      <text>{{course.s_time}}</text>
+  </view>
+
+  <view class="item">
+      <text>总课时：</text>
+      <text>{{course.hours}}课时</text>
+  </view>
+
+  <view class="item">
+      <text>最高学员数量：</text>
+      <text>{{course.maxPeople}}人</text>
+  </view>
+
+  <view class="detail">
+      <text>课程说明：</text>
+      <text>{{course.remark}}</text>
+  </view>
+</view>
+
+<view>
+  <button class='btn-confirm' bindtap='back'>确认</button>
+</view>

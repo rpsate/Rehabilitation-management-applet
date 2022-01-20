@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "残疾儿童学习系统",
+  "usingComponents": {
+    "index-btn": "/components/index-btn/index-btn"
+  }
+}

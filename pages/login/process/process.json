@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "审批进度",
+  "usingComponents": {
+    "process-list": "/components/process-list/process-list"
+  }
+}

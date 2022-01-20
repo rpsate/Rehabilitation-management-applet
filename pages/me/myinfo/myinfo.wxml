@@ -1,0 +1,98 @@
+<!--pages/me/myinfo/myinfo.wxml-->
+<view class="container">
+  <view class="item">
+    <text>姓名：</text>
+    <text>{{userInfo.name}}</text>
+  </view>
+
+  <view class="item">
+    <text>性别</text>
+    <text>{{gender[userInfo.sex]}}</text>
+  </view>
+
+  <view class="item">
+    <text>年龄段</text>
+    <text>{{ageGroup[userInfo.ageGroup]}}</text>
+  </view>
+
+  <view class="item">
+      <text>出生日期：</text>
+      <text>{{userInfo.s_birthday}}</text>
+  </view>
+
+  <view class="item">
+      <text>身份证号：</text>
+      <text>{{userInfo.idCard}}</text>
+  </view>
+
+  <view class="item">
+      <text>残疾类别：</text>
+      <text>{{cjType[userInfo.cjType]}}</text>
+  </view>
+
+  <view class="item">
+      <text>户籍：</text>
+      <text>{{userInfo.hjSheng + userInfo.hjShi + userInfo.hjQu + userInfo.hjAddress}}</text>
+  </view>
+
+  <view class="item">
+      <text>常住地：</text>
+      <text>{{userInfo.czSheng + userInfo.czShi + userInfo.czQu + userInfo.czAddress}}</text>
+  </view>
+
+  <view class="item">
+      <text>监护人：</text>
+      <text>{{userInfo.guardian}}</text>
+  </view>
+
+  <view class="item">
+      <text>手机号：</text>
+      <text>{{userInfo.mobile}}</text>
+  </view>
+
+  <view class="item">
+      <text>关系：</text>
+      <text>{{userInfo.guanxi}}</text>
+  </view>
+
+  <view class="item">
+      <text>是否参加培训：</text>
+      <text>{{istrain[userInfo.isAssess]}}</text>
+  </view>
+
+  <view class="item">
+      <text>培训机构：</text>
+      <text>{{userInfo.schoolName}}</text>
+  </view>
+
+  <block wx:if="{{userInfo.images.length>0}}">
+    <text class='update-title'>病例资料</text>
+    <view class='image'>
+      <view class='image-box' wx:for="{{userInfo.images}}" wx:for-index="imgindex" wx:for-item="imgitem" wx:key="id" id="{{imgindex}}">
+          <image src='{{baseUrl+imgitem}}' id="{{imgindex}}" mode='aspectFill' bindtap='previewImage'></image>
+      </view>
+    </view>
+  </block>
+
+  <view class="item" wx:if="{{userInfo.remark != ''}}">
+      <text>备注：</text>
+      <text>{{userInfo.remark}}</text>
+  </view>
+
+  <view class="item">
+      <text>注册日期：</text>
+      <text>{{userInfo.s_createTime}}</text>
+  </view>
+
+  <view class="item" bindtap="evalute">
+      <text>评估信息</text>
+      <image src="../../images/sm_right_gray.png"></image>
+  </view>
+  <view>
+  </view>
+  
+</view>
+<view>
+  <button class='btn-confirm' bindtap='back'>返回</button>
+</view>
+

@@ -1,0 +1,64 @@
+/* pages/attend/process/process.wxss */
+/* pages/login/register/register.wxss */
+page {
+  background-color: #efefef;
+}
+
+process-list {
+  margin-top: 30rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 700rpx;
+  height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item text {
+  display: block;
+  font-size: 16px;
+  line-height: 100rpx;
+}
+
+.reason,
+.process {
+  display: block;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+}
+
+.reason {
+  line-height: 26px;
+  width: 700rpx;
+}
+
+.item text:last-child,
+.reason text:last-child {
+  color: #666666;
+}
+
+.process-title {
+  color: #888888;
+}
+
+.process {
+  display: flex;
+  flex-direction: column;
+  width: 700rpx;
+}
+
+.list {
+  margin-top: 22rpx;
+}

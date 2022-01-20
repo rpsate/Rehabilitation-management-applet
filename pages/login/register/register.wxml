@@ -1,0 +1,109 @@
+<!--pages/login/register/register.wxml-->
+<view class="container">
+  <view class="item">
+    <text>姓名：</text>
+    <input placeholder="请填写姓名" maxlength="11" type="text" bindblur="changeName" value="{{name}}" />
+  </view>
+
+  <view class="item">
+    <text>性别：</text>
+    <picker range="{{gender}}" bindchange="changeGender" value="{{gender_index}}">
+      <text>{{gender[gender_index]}}</text>
+    </picker>
+  </view>
+
+  <view class="item">
+    <text>身份证号：</text>
+    <input placeholder="请填写身份证号码" maxlength="18" type="idcard" bindblur="chnageIdcard" value="{{idcard}}" />
+  </view>
+
+  <!-- <view class="item">
+    <text>出生日期：</text>
+    <picker mode="date" value="{{birthday}}" start="1900-01-01" end="now" bindchange="changeBirthday">
+      <text>{{birthday==""?"未选择":birthday}}</text>
+    </picker>
+  </view> -->
+
+  <view class="item">
+    <text>家长姓名：</text>
+    <input placeholder="请填写家长的姓名" maxlength="11" type="text" bindblur="changeParentName" value="{{parent_name}}" />
+  </view>
+
+  <view class="item">
+    <text>联系方式：</text>
+    <input placeholder="请填写家长的手机号码" maxlength="11" type="number" bindblur="changePhone" value="{{parent_phone}}" />
+  </view>
+
+  <view class="item">
+    <text>关系：</text>
+    <input placeholder="请填写家长与学员的关系" maxlength="11" type="text" bindblur="changeRelation" value="{{parent_relation}}" />
+  </view>
+
+  <view class="item space-between">
+    <text>户籍地：</text>
+    <picker class="max-width" mode="region" value="{{default_household}}" bindchange="changeHousehold">
+      <text>{{household==""?"未选择":household}}</text>
+    </picker>
+  </view>
+
+  <view class="item">
+    <text>详细地址：</text>
+    <input placeholder="请填写户籍详细地址" maxlength="30" type="text" bindblur="changeHouseholdDetail" value="{{household_detail}}"/>
+  </view>
+
+  <view class="item space-between">
+    <text>常住地：</text>
+    <picker class="max-width" mode="region" value="{{default_residence}}" bindchange="changeResidence">
+      <text>{{residence==""?"未选择":residence}}</text>
+    </picker>
+  </view>
+
+  <view class="item">
+    <text>详细地址：</text>
+    <input placeholder="请填写常住地详细地址" maxlength="30" type="text" bindblur="changeResidenceDetail" value="{{residence_detail}}" />
+  </view>
+
+  <view class="item">
+    <text>残疾类别：</text>
+    <picker range="{{category}}" bindchange="changeCategory" value="{{category_index}}">
+      <text>{{category[category_index]}}</text>
+    </picker>
+  </view>
+
+  <!-- 培训机构 -->
+  <view class="item">
+    <text>培训机构：</text>
+    <picker range="{{organ[category_index]}}" disabled="{{category_index==0}}" bindchange="changeOrgan" value="{{organ_index}}">
+      <text>{{organ[category_index][organ_index]}}</text>
+    </picker>
+  </view>
+
+  <view class="item">
+    <text>是否已参加培训：</text>
+    <picker range="{{istrain}}" bindchange="changeIstrain" value="{{istrain_index}}">
+      <text>{{istrain[istrain_index]}}</text>
+    </picker>
+  </view>
+
+  <!-- 上传证明材料 -->
+  <block wx:if="{{istrain_index==1}}">
+    <text class='update-title'>请上传病历等证明材料</text>
+    <view class='updateImage'>
+      <view class='updateImage-box' wx:for="{{images}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+          <image mode='aspectFill' src='{{item}}' id='{{index}}' bindtap='previewImage'></image>
+          <image class='close' id='{{index}}' bindtap='closeImage' src='/pages/images/close.png'></image>
+      </view>
+      <view class='updateImage-box'>
+          <image src='/pages/images/add_img.png' mode='aspectFill' bindtap='chooseImages'></image>
+      </view>
+    </view>
+  </block>
+  
+
+  <view class="item">
+    <text>备注：</text>
+    <input placeholder="请填写备注" maxlength="50" type="text" bindblur="changeRemarks" value="{{remarks}}" />
+  </view>
+
+  <button class='btn-confirm' bindtap='submit'>提交</button>
+</view>

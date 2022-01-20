@@ -1,0 +1,93 @@
+/* pages/login/register/register.wxss */
+page {
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  background-color: #ffffff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 700rpx;
+  min-height: 100rpx;
+  border-bottom: #efefef solid 1px;
+}
+
+.item text {
+  display: block;
+  font-size: 16px;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+}
+
+
+.item input,
+.item picker {
+  display: flex;
+  min-height: 100rpx;
+  flex-grow: 1;
+}
+
+.item picker {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.max-width {
+  max-width: 510rpx;
+}
+
+/*上传证明材料*/
+.update-title {
+  font-size: 14px;
+  color: #888;
+  margin-top: 8px;
+  padding-left: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.updateImage {
+  width: 700rpx;
+  display: block;
+  background-color: #ffffff;
+}
+
+.updateImage-box {
+  float: left;
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  padding-top: 25rpx;
+  padding-right: 22rpx;
+  padding-bottom: 25rpx;
+}
+
+.updateImage-box image {
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 0;
+}
+
+.updateImage-box>.close {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 20rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  z-index: 1;
+}
