@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "残疾儿童学习系统",
+  "navigationBarTitleText": "残疾儿童康复服务管理",
   "usingComponents": {
     "index-btn": "/components/index-btn/index-btn"
   }

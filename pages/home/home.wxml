@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <view class='container'>
     <image class='logo' src='../images/pic_ms2.png'></image>
-    <text class='slogan'></text>
+    <text class='slogan'>残疾儿童康复服务管理</text>
     <image class='loading' src='../images/pic_sl.png'></image>
 </view>
 

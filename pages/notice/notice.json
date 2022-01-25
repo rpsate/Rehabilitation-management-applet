@@ -2,5 +2,5 @@
   "usingComponents": {
     "notice-list": "/components/notice-list/notice-list"
   },
-  "navigationBarTitleText": "通知"
+  "navigationBarTitleText": "上课提醒"
 }
