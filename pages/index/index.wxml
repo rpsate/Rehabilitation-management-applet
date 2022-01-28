@@ -15,6 +15,7 @@
   考勤信息
   </view>
   <view class="content">
+    <index-btn text="上传人脸" src="/pages/images/uploadFace.png" bindtap="uploadFace"></index-btn>
     <index-btn text="我的考勤" src="/pages/images/attendance.png" bindtap="myAttend"></index-btn>
     <index-btn text="补打卡" src="/pages/images/supplement.png" bindtap="reAttend"></index-btn>
   </view>

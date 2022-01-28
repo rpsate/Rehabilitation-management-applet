@@ -1,5 +1,7 @@
 // index.js
 const app = getApp()
+import { HTTP } from "../../utils/http";
+import {config} from "../../config";
 
 Page({
   data: {
@@ -76,6 +78,60 @@ Page({
     wx.navigateTo({
       url: '/pages/attend/reattend/reattend'
     });
+  },
+  uploadFace: async res => {
+    var userInfo = await app.getUserInfo();
+
+    wx.chooseImage({
+      count: 1,
+      sizeType: ["compresses"],
+      //sourceType: [],
+      success: (result) => {
+        var filePath = result.tempFilePaths[0];
+        var appUrl = config.appUrl;
+        
+        wx.showLoading({
+          title: '上传中······',
+          mask: true
+        });
+
+        wx.uploadFile({
+          url: appUrl + "/wxStudent/addFacePicture",
+          filePath: filePath,
+          name: 'personphotos',
+          header: { "contentType": "multipart/form-data" },
+          formData: {
+            "sid": userInfo.id,
+          },
+          success: (res)=> {
+            if(res.statusCode == 200) {
+              wx.showModal({
+                confirmColor: '#1a8be9',
+                showCancel: false,
+                title: '提示',
+                content:'上传成功!'
+              });
+            }else {
+              wx.showModal({
+                confirmColor: '#1a8be9',
+                showCancel: false,
+                title: '提示',
+                content:'上传失败!'
+              });
+            }
+            console.log(res);
+          },
+          complete: res => {
+            wx.hideLoading({
+              success: (res) => {},
+            });
+          }
+        });
+
+      },
+      fail: (res) => {},
+      complete: (res) => {},
+    })
   },
   myProcess: res => {
     wx.navigateTo({
