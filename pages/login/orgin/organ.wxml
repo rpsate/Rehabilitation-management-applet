@@ -1,0 +1,29 @@
+<!--pages/login/orgin/organ.wxml-->
+<block wx:if="{{organ[category_index].length > 1}}">
+  <view class="container" wx:for="{{organ[category_index]}}" wx:for-index="index" wx:for-item="item" wx:key="id" wx:if="{{index!=0}}">
+    <view class="item">
+      <text>机构名称：{{item.name}}</text>
+    </view>
+    <view class="item">
+      <text>机构地址：{{item.address}}</text>
+    </view>
+    <view class="item">
+      <text>所在区：{{item.qu}}</text>
+    </view>
+    <view class="item">
+      <text>康复范围：{{item.fanwei}}</text>
+    </view>
+    <view class="item">
+      <text>备注：{{item.remark}}</text>
+    </view>
+    <view class="item">
+      <button class="btn-confirm" bindtap="selectOrgan" id="{{index}}">选择</button>
+    </view>
+  </view>
+</block>
+
+<!--无数据时显示-->
+<view class='not-data' wx:else>
+    <image src='../../images/ic_no_record.png'></image>
+    <text class='tip'>没有培训机构信息</text>
+</view>

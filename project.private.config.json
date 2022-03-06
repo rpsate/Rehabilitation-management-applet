@@ -135,6 +135,12 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/login/orgin/organ",
+          "pathName": "pages/login/orgin/organ",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -71,11 +71,16 @@
   </view>
 
   <!-- 培训机构 -->
-  <view class="item">
+  <!-- <view class="item">
     <text>培训机构：</text>
     <picker range="{{organ[category_index]}}" disabled="{{category_index==0}}" bindchange="changeOrgan" value="{{organ_index}}">
       <text>{{organ[category_index][organ_index]}}</text>
     </picker>
+  </view> -->
+
+  <view class="item" style="justify-content: space-between;">
+    <text>培训机构：</text>
+    <text bindtap="changeOrgan">{{organ[category_index][organ_index]}}</text>
   </view>
 
   <view class="item">

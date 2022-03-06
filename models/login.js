@@ -15,8 +15,8 @@ class LoginModel extends HTTP {
                         appSecret: config.appSecret
                     },
                     success: res => {
-                        var parameter = res.parameter
-                        var openid = JSON.parse(parameter).openid
+                        var parameter = res.parameter;
+                        var openid = JSON.parse(parameter).openid;
                         wx.setStorageSync('openid', openid);
                         params.resolve(openid);
                     },

@@ -182,14 +182,20 @@ Page({
   },
   //培训机构
   changeOrgan: function (e) {
-    this.setData({
-      organ_index: e.detail.value,
-    });
-    //修改注册信息是方便获取该数据
-    wx.setStorage({
-      key: 'organ_index',
-      data: e.detail.value
-    });
+    var category_index = this.data.category_index;
+    if(category_index != 0) {
+      wx.navigateTo({
+        url: '/pages/login/orgin/organ'
+      });
+    }
+    // this.setData({
+    //   organ_index: e.detail.value,
+    // });
+    // //修改注册信息是方便获取该数据
+    // wx.setStorage({
+    //   key: 'organ_index',
+    //   data: e.detail.value
+    // });
   },
   //残疾类别
   changeCategory: function (e) {
@@ -206,7 +212,7 @@ Page({
   },
   //选择图片
   chooseImages: function(e) {
-    var maxLength = 4;
+    var maxLength = 20;
     var images = this.data.images;
     var imagesLength = images.length;
     if (maxLength - imagesLength <= 0) {
