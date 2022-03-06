@@ -375,8 +375,16 @@ Page({
         success: res => {
           //提交新数据或修改数据，修改则删除原来数据缓存
           wx.removeStorageSync('userInfo');
-          wx.reLaunch({
-            url: '/pages/login/process/process',
+          wx.showModal({
+            confirmColor: '#1a8be9',
+            showCancel: false,
+            title: '提示',
+            content:'提交注册申请成功，请等待审核！',
+            complete: (res) => {
+              wx.reLaunch({
+                url: '/pages/index/index',
+              });
+            },
           });
         },
         error: res => {
