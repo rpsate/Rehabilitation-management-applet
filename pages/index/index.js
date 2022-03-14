@@ -125,13 +125,14 @@ Page({
             wx.hideLoading({
               success: (res) => {},
             });
+
+            //刷新faceURL
+            wx.removeStorageSync('userInfo');
+            app.getUserInfo()
           }
         });
-
-      },
-      fail: (res) => {},
-      complete: (res) => {},
-    })
+      }
+    });
   },
   myProcess: res => {
     wx.navigateTo({

@@ -71,3 +71,10 @@ page {
   height: 120rpx;
   z-index: 0;
 }
+
+.face {
+  width: 100rpx !important;
+  height: 100rpx !important;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}

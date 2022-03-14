@@ -91,3 +91,16 @@ page {
   right: -10rpx;
   z-index: 1;
 }
+
+.agreement {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 700rpx;
+  padding-top: 12rpx;
+}
+
+.agreement text {
+  color: #1a8be9;
+}

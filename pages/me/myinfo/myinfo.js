@@ -34,7 +34,11 @@ Page({
 
     //格式化图片
     var images = userInfo.fileURL;
-    images = images.split(",");
+    if(images.length > 0) {
+      images = images.split(",");
+    }else {
+      images = [];
+    }
     userInfo.images = images;
 
     //缓存图片
@@ -115,10 +119,86 @@ Page({
       url: '/pages/me/evaluation/evaluation'
     });
   },
-  back: function (res) {
-    wx.navigateBack({
-      delta: 1
-    });
+  modifyContent: async function(e) {
+    var userInfo = await app.getUserInfo();
+
+    wx.showActionSheet({
+      itemList: ['修改人脸信息', '修改我的档案'],
+      alertText: 'alertText',
+      itemColor: 'itemColor',
+      success: (res) => {
+        console.log(res);
+        var tapIndex = res.tapIndex;
+        switch(tapIndex) {
+          case 0:
+            //修改人脸信息
+            wx.chooseImage({
+              count: 1,
+              sizeType: ["compresses"],
+              //sourceType: [],
+              success: (result) => {
+                var filePath = result.tempFilePaths[0];
+                var appUrl = config.appUrl;
+                
+                wx.showLoading({
+                  title: '上传中······',
+                  mask: true
+                });
+        
+                wx.uploadFile({
+                  url: appUrl + "/wxStudent/addFacePicture",
+                  filePath: filePath,
+                  name: 'personphotos',
+                  header: { "contentType": "multipart/form-data" },
+                  formData: {
+                    "sid": userInfo.id,
+                  },
+                  success: (res)=> {
+                    if(res.statusCode == 200) {
+                      wx.showModal({
+                        confirmColor: '#1a8be9',
+                        showCancel: false,
+                        title: '提示',
+                        content:'修改成功!'
+                      });
+                    }else {
+                      wx.showModal({
+                        confirmColor: '#1a8be9',
+                        showCancel: false,
+                        title: '提示',
+                        content:'修改失败!'
+                      });
+                    }
+                    console.log(res);
+                  },
+                  complete: async res => {
+                    wx.hideLoading({
+                      success: (res) => {},
+                    });
+        
+                    //刷新faceURL
+                    wx.removeStorageSync('userInfo');
+                    var newUserInfo = await app.getUserInfo()
+                    var userInfo = this.data.userInfo;
+                    userInfo.faceURL = newUserInfo.faceURL;
+                    this.setData({
+                      userInfo: userInfo
+                    });
+                  }
+                });
+              }
+            });
+            break;
+          case 1:
+            //修改我的档案
+            wx.navigateTo({
+              url: '/pages/login/register/register?isModify=1',
+            });
+        }
+      },
+      fail: (res) => {},
+      complete: (res) => {},
+    })
   },
   //预览图片
   previewImage: function(e) {
@@ -138,4 +218,11 @@ Page({
       urls: images
     });
   },
+  previewFace: function(e) {
+    var url = this.data.baseUrl + this.data.userInfo.faceURL;
+    console.log(url);
+    wx.previewImage({
+      urls: [url],
+    });
+  }
 })

@@ -30,7 +30,9 @@ Page({
     residence_detail: "",
     remarks: "",
     images: [],
-    organ_data: []
+    organ_data: [],
+    isRead: 0,
+    isModify: 0
   },
 
   /**
@@ -52,16 +54,18 @@ Page({
         parent_name: userInfo.guardian,
         parent_phone: userInfo.mobile,
         parent_relation: userInfo.guanxi,
-        household: userInfo.hjSheng + "," + userInfo.hjShi + "," + userInfo.hjQu,
+        household: [userInfo.hjSheng, userInfo.hjShi, userInfo.hjQu],
         default_household: [userInfo.hjSheng, userInfo.hjShi, userInfo.hjQu],
         household_detail: userInfo.hjAddress,
-        residence: userInfo.czSheng + "," + userInfo.czShi + "," + userInfo.czQu,
+        residence: [userInfo.czSheng, userInfo.czShi, userInfo.czQu],
         default_residence: [userInfo.czSheng, userInfo.czShi, userInfo.czQu],
         residence_detail: userInfo.czAddress,
         category_index: userInfo.cjType,
         organ_index: organ_index,
         istrain_index: userInfo.isExists + 1,
-        remarks: userInfo.remark
+        remarks: userInfo.remark,
+        isRead: 1,
+        isModify: 1
       });
     }
   },
@@ -258,6 +262,20 @@ Page({
       remarks: e.detail.value
     });
   },
+  //用户隐私保护协议
+  changeCheckbock: function (e) {
+    var detail = e.detail.value;
+    var length = detail.length;
+    this.setData({
+      isRead: length
+    })
+  },
+  //跳转到隐私保护协议详细页面
+  gotoAgreement: function (e) {
+    wx.navigateTo({
+      url: '/pages/login/agreement/agreement',
+    });
+  },
   //提交注册信息
   submit: function(e) {
     //检查数据是否合法
@@ -354,7 +372,7 @@ Page({
         remark: this.data.remarks
       }
 
-      console.log("post data:", data);
+      
 
       //对数据进行编码
       for (let i in data) {
@@ -364,6 +382,8 @@ Page({
       if(imagesUrl) {
         data.fileURL = imagesUrl;
       }
+
+      console.log("post data:", data);
 
       var post_data = JSON.stringify(data);
       //提交数据
@@ -440,6 +460,8 @@ Page({
       if (this.data.images.length == 0) {
         message = "请上传证明材料"
       }
+    }else if(this.data.isRead == 0) {
+      message = "请阅读并同意《用户隐私保护协议》"
     }
     if (message != "") {
       wx.showToast({
@@ -463,16 +485,20 @@ Page({
     var myDate = new Date();
     var month = myDate.getMonth() + 1;
     var day = myDate.getDate();
-    var age = myDate.getFullYear() - idcard.substring(6, 10) - 1;
-    if (idcard.substring(10, 12) < month || idcard.substring(10, 12) == month && idcard.substring(12, 14) <= day) {
-      age++;
-    }
+    var age = myDate.getFullYear() - idcard.substring(6, 10);
+
+    //岁数精确到生日
+    // var age = myDate.getFullYear() - idcard.substring(6, 10) - 1;
+    // if (idcard.substring(10, 12) < month || idcard.substring(10, 12) == month && idcard.substring(12, 14) <= day) {
+    //   age++;
+    // }
+
     //1:0-6岁  2:7-14岁
     var ageBracket = 0
     if(age >= 0 && age < 7) {
       ageBracket = 1
     }else if(age >= 7 && age < 15) {
-      ageBracket = 1
+      ageBracket = 2
     }
     return ageBracket
   },

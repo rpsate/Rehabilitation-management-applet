@@ -66,7 +66,6 @@ Page({
         sid: sid
       },
       success: res => {
-
         var parameter = res.parameter;
         parameter = parameter.reverse();
         try {
@@ -109,7 +108,7 @@ Page({
           ** level: 1.机构审批    2.残联审批
           ** result: 0.未审批    1.审批通过    2.审批驳回
            */
-          if(parameter[i].level == 1 && parameter[i].result == 2) {//代表驳回申请
+          if(parameter[i].result == 2) {//代表驳回申请
             this.setData({
               status: 1
             });

@@ -5,6 +5,7 @@
     "pages/notice/notice",
     "pages/login/login/login",
     "pages/login/register/register",
+    "pages/login/agreement/agreement",
     "pages/login/orgin/organ",
     "pages/login/process/process",
     "pages/attend/attend/attend",

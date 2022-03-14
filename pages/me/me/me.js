@@ -108,7 +108,6 @@ Page({
   goOther: function(res) {
     var id = res.detail.id;
     var url = this.data.otherList[id][2];
-    console.log(url)
     wx.navigateTo({
       url: url
     });

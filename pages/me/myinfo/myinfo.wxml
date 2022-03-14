@@ -1,6 +1,11 @@
 <!--pages/me/myinfo/myinfo.wxml-->
 <view class="container">
   <view class="item">
+    <text>头像：</text>
+    <image class="face" bindtap="previewFace" src='{{baseUrl+userInfo.faceURL}}' mode='aspectFill'></image>
+  </view>
+
+  <view class="item">
     <text>姓名：</text>
     <text>{{userInfo.name}}</text>
   </view>
@@ -57,7 +62,7 @@
 
   <view class="item">
       <text>是否参加培训：</text>
-      <text>{{istrain[userInfo.isAssess]}}</text>
+      <text>{{istrain[userInfo.isExists]}}</text>
   </view>
 
   <view class="item">
@@ -66,7 +71,7 @@
   </view>
 
   <block wx:if="{{userInfo.images.length>0}}">
-    <text class='update-title'>病例资料</text>
+    <text class='update-title'>病历资料</text>
     <view class='image'>
       <view class='image-box' wx:for="{{userInfo.images}}" wx:for-index="imgindex" wx:for-item="imgitem" wx:key="id" id="{{imgindex}}">
           <image src='{{baseUrl+imgitem}}' id="{{imgindex}}" mode='aspectFill' bindtap='previewImage'></image>
@@ -93,6 +98,6 @@
   
 </view>
 <view>
-  <button class='btn-confirm' bindtap='back'>返回</button>
+  <button class='btn-confirm' bindtap='modifyContent'>修改资料</button>
 </view>
 

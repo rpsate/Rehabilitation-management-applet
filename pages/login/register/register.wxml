@@ -14,7 +14,7 @@
 
   <view class="item">
     <text>身份证号：</text>
-    <input placeholder="请填写身份证号码" maxlength="18" type="idcard" bindblur="chnageIdcard" value="{{idcard}}" />
+    <input placeholder="请填写身份证号码" maxlength="18" type="idcard" bindblur="chnageIdcard" value="{{idcard}}"/>
   </view>
 
   <!-- <view class="item">
@@ -108,6 +108,13 @@
   <view class="item">
     <text>备注：</text>
     <input placeholder="请填写备注" maxlength="50" type="text" bindblur="changeRemarks" value="{{remarks}}" />
+  </view>
+  
+  <view class="agreement" wx:if="{{isModify==0}}">
+    <checkbox-group bindchange="changeCheckbock">
+      <checkbox value="check" class="checkbox"></checkbox>
+    </checkbox-group>
+    <text bindtap="gotoAgreement">阅读并同意《用户隐私保护协议》</text>
   </view>
 
   <button class='btn-confirm' bindtap='submit'>提交</button>

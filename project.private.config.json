@@ -141,6 +141,12 @@
           "pathName": "pages/login/orgin/organ",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/login/agreement/agreement",
+          "pathName": "pages/login/agreement/agreement",
+          "query": "",
+          "scene": null
         }
       ]
     }

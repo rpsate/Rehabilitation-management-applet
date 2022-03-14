@@ -1,0 +1,9 @@
+/* pages/login/agreement/agreement.wxss */
+.b {
+  font-weight: bold;
+}
+
+.bb {
+  font-size: 20px;
+  font-weight: bolder;
+}
