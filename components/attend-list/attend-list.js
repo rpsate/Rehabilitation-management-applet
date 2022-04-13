@@ -6,15 +6,15 @@ Component({
   properties: {
     date: {
       type: "String",
-      value: "2020年12月"
+      value: ""
     },
     times: {
       type: "String",
-      value: "12"
+      value: "0"
     },
     timesLess: {
       type: "String",
-      value: '1'
+      value: '0'
     }
   },
 

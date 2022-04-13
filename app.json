@@ -11,6 +11,7 @@
     "pages/attend/attend/attend",
     "pages/attend/detail/detail",
     "pages/attend/reattend/reattend",
+    "pages/attend/reattend2/reattend2",
     "pages/attend/process/process",
     "pages/mycourse/mycourse/mycourse",
     "pages/mycourse/recommendCourse/recommendCourse",

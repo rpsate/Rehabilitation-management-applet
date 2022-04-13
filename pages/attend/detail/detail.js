@@ -47,7 +47,8 @@ Page({
         var data = res.parameter;
         var attend = [];
         for(let i in data) {
-          var time = date(data[i].attendanceDate);
+          var time = date(data[i].attendanceTime);
+          console.log("time;", time);
           var status = this.getStatus(data[i].status);
           attend.push([time.substr(5, 5), time.substr(11, 5), status])
           if(status == 2 || status == 4) {

@@ -16,6 +16,8 @@ const formatNumber = n => {
 
 function getDate(inputTime) {
   var date = new Date(inputTime);
+  console.log("inputtime:", inputTime);
+  console.log("dateddd:",date);
   var y = date.getFullYear();
   var m = date.getMonth() + 1;
   m = m < 10 ? ('0' + m) : m;
@@ -28,11 +30,11 @@ function getDate(inputTime) {
   minute = minute < 10 ? ('0' + minute) : minute;
   second = second < 10 ? ('0' + second) : second;
   return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
-   
  };
 
 function date(timestamp, s=false){
   var date_time = getDate(timestamp);
+  console.log("date_time:", date_time);
   var date_time = date_time.split(" ");
   var date = date_time[0].split("-");
   var time = date_time[1].split(":");

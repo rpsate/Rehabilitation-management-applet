@@ -1,0 +1,14 @@
+<!--pages/attend/reattend/reattend.wxml-->
+<view class="container">
+  <view class="item">
+    <text> 日期：</text>
+    <picker mode="date" start="1900-01-01" end="now" bindchange="changeDate" disabled="{{isDisabled}}">{{date}}</picker>
+  </view>
+</view>
+
+<!-- 原因 -->  
+<textarea class="reason" placeholder="请填写原因" bindinput="input"></textarea>
+
+<view>
+  <button class='btn-confirm' bindtap='submit'>确认</button>
+</view>

@@ -95,52 +95,52 @@ Page({
   },
   changeDate: async function (e) {
     var time = e.detail.value;
-    var months = time.substr(0, 7);
-    var userInfo = await app.getUserInfo();
-    var sid = userInfo.id;
-    console.log(months, sid)
-    http.request({
-      url: '/wxAttendance/info',
-      loading: true,
-      data: {
-        sid: sid,
-        months: months
-      },
-      success: res => {
-        console.log(res)
-        var count = 0;
-        var canReAttend = true;
-        var data = res.parameter;
-        var course = null;
-        var courseStatus = "";
-        for(let i in data) {
-          var attendanceTime = date(data[i].attendanceDate);
-          var status = this.getStatus(data[i].status);
-          attendanceTime = attendanceTime.substr(0, 10);
-          console.log("time:", time)
-          console.log("date:", attendanceTime)
-          if (time == attendanceTime) {
-            course = data[i];
-            courseStatus = status;
-          }
-          if(status == 2 || status == 4) {
-            count++;
-          }
-        }
-        console.log("course:", course);
-        if(count >= this.data.count) {
-          canReAttend = false;
-        }
-        this.setData({
-          course: course,
-          courseStatus: courseStatus,
-          canReAttend: canReAttend,
-        });
-      },
-      fail: res => {
-        console.log(res);
-      }
-    });
+    // var months = time.substr(0, 7);
+    // var userInfo = await app.getUserInfo();
+    // var sid = userInfo.id;
+    // console.log(months, sid)
+    // http.request({
+    //   url: '/wxAttendance/info',
+    //   loading: true,
+    //   data: {
+    //     sid: sid,
+    //     months: months
+    //   },
+    //   success: res => {
+    //     console.log(res)
+    //     var count = 0;
+    //     var canReAttend = true;
+    //     var data = res.parameter;
+    //     var course = null;
+    //     var courseStatus = "";
+    //     for(let i in data) {
+    //       var attendanceTime = date(data[i].attendanceDate);
+    //       var status = this.getStatus(data[i].status);
+    //       attendanceTime = attendanceTime.substr(0, 10);
+    //       console.log("time:", time)
+    //       console.log("date:", attendanceTime)
+    //       if (time == attendanceTime) {
+    //         course = data[i];
+    //         courseStatus = status;
+    //       }
+    //       if(status == 2 || status == 4) {
+    //         count++;
+    //       }
+    //     }
+    //     console.log("course:", course);
+    //     if(count >= this.data.count) {
+    //       canReAttend = false;
+    //     }
+    //     this.setData({
+    //       course: course,
+    //       courseStatus: courseStatus,
+    //       canReAttend: canReAttend,
+    //     });
+    //   },
+    //   fail: res => {
+    //     console.log(res);
+    //   }
+    // });
     this.setData({
       date: time
     });
@@ -165,42 +165,42 @@ Page({
       return;
     }
     //当月是否补卡达到上限
-    if(!this.data.canReAttend) {
-      wx.showModal({
-        confirmColor: '#1a8be9',
-        showCancel: false,
-        title: '提示',
-        content:'当月补卡以达到上限！'
-      });
-      return;
-    }
+    // if(!this.data.canReAttend) {
+    //   wx.showModal({
+    //     confirmColor: '#1a8be9',
+    //     showCancel: false,
+    //     title: '提示',
+    //     content:'当月补卡以达到上限！'
+    //   });
+    //   return;
+    // }
     //检查课程是否存在或是是否可以补卡
-    var course = this.data.course;
-    if(course == null) {
-      wx.showModal({
-        confirmColor: '#1a8be9',
-        showCancel: false,
-        title: '提示',
-        content:'当天没有课程信息！'
-      });
-      return;
-    }
+    // var course = this.data.course;
+    // if(course == null) {
+    //   wx.showModal({
+    //     confirmColor: '#1a8be9',
+    //     showCancel: false,
+    //     title: '提示',
+    //     content:'当天没有课程信息！'
+    //   });
+    //   return;
+    // }
 
     //判断当天是否已经打卡
-    var statusTip = this.data.statusTip;
+    // var statusTip = this.data.statusTip;
 
-    if(statusTip.key.indexOf(courseStatus) >= 0) {
-      wx.showModal({
-        confirmColor: '#1a8be9',
-        showCancel: false,
-        title: '提示',
-        content: statusTip.value[courseStatus],
-        fail: res => {
-          console.log(res)
-        }
-      });
-      return;
-    }
+    // if(statusTip.key.indexOf(courseStatus) >= 0) {
+    //   wx.showModal({
+    //     confirmColor: '#1a8be9',
+    //     showCancel: false,
+    //     title: '提示',
+    //     content: statusTip.value[courseStatus],
+    //     fail: res => {
+    //       console.log(res)
+    //     }
+    //   });
+    //   return;
+    // }
 
     //检查原因字符
     var remark = this.data.remark;
@@ -214,9 +214,14 @@ Page({
     //获取用户信息
     var userInfo = await app.getUserInfo();
     var sid = userInfo.id;
-    var attendanceTime = date(course.attendanceDate).substr(0, 11) + "09:00:00"
+    var attendanceTime = this.data.date + " 09:00:00"
     attendanceTime = new Date(attendanceTime).getTime()
-    console.log("打卡时间：", date(attendanceTime))
+    console.log({
+      sid: sid,
+      attendanceTime: attendanceTime,
+      schoolid: userInfo.schoolId,
+      remark: encodeURI(remark)
+    });
     http.request({
       url: "/wxAttendance/add",
       requestType: 'json',
@@ -224,7 +229,7 @@ Page({
       data: {
         sid: sid,
         attendanceTime: attendanceTime,
-        schoolid: course.schoolId,
+        schoolid: userInfo.schoolId,
         remark: encodeURI(remark)
       },
       success: res => {
@@ -248,6 +253,23 @@ Page({
         console.log(res);
       },
       fail: res => {
+        //补卡失败，返回上级目录
+        wx.showModal({
+          confirmColor: '#1a8be9',
+          showCancel: false,
+          title: '提示',
+          content:'补卡失败',
+          complete: (res) => {
+            var pages = getCurrentPages();
+            var page = pages[pages.length - 2];
+            page.setData({
+              isFresh: true
+            });
+            wx.navigateBack({
+              delta: 1
+            });
+          }
+        });
         console.log(res);
       }
     });

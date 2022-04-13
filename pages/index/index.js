@@ -5,7 +5,8 @@ import {config} from "../../config";
 
 Page({
   data: {
-    notice_count: ""
+    notice_count: "",
+    isRegister: true
   },
   onLoad(options) {
     // app.getUserInfo({
@@ -19,6 +20,20 @@ Page({
     //     }
     //   }
     // });
+
+    var openid = wx.getStorageSync('openid');
+    app.getUserInfo({
+      openid: openid,
+      error: res => {
+        var code = res.code;
+
+        if(code == "108") {
+          this.setData({
+            isRegister: false
+          })
+        }
+      }
+    });
   },
   onShow: async function () {
     //判断未读信息条数
@@ -65,8 +80,20 @@ Page({
     });
   },
   myinfo: res => {
-    wx.navigateTo({
-      url: '/pages/me/myinfo/myinfo'
+    wx.showModal({
+      cancelText: '拒绝',
+      confirmText: '允许',
+      content: '为了核对您的注册信息是否正确，查看"我的档案"会要显示您的姓名、性别、身份证号、家长姓名、联系方式、关系、户籍地、常住地、残疾类别、所选机构等信息。',
+      showCancel: true,
+      title: '残疾儿童康复服务管理 申请',
+      success: (result) => {
+        var confirm = result.confirm;
+        if (confirm) {
+          wx.navigateTo({
+            url: '/pages/me/myinfo/myinfo'
+          });
+        }
+      }
     });
   },
   myAttend: res => {
@@ -76,7 +103,7 @@ Page({
   },
   reAttend: res => {
     wx.navigateTo({
-      url: '/pages/attend/reattend/reattend'
+      url: '/pages/attend/reattend2/reattend2'
     });
   },
   uploadFace: async res => {
@@ -104,7 +131,9 @@ Page({
             "sid": userInfo.id,
           },
           success: (res)=> {
-            if(res.statusCode == 200) {
+            console.log("uploadFace:", res);
+            var resData = JSON.parse(res.data);
+            if(resData.code == 200) {
               wx.showModal({
                 confirmColor: '#1a8be9',
                 showCancel: false,
@@ -116,7 +145,7 @@ Page({
                 confirmColor: '#1a8be9',
                 showCancel: false,
                 title: '提示',
-                content:'上传失败!'
+                content: resData.message
               });
             }
             console.log(res);
@@ -137,6 +166,23 @@ Page({
   myProcess: res => {
     wx.navigateTo({
       url: '/pages/login/process/process'
+    });
+  },
+  register: res => {
+    wx.showModal({
+      cancelText: '拒绝',
+      confirmText: '允许',
+      content: '1.获取残疾儿童的姓名、性别、身份证号、家长姓名、联系方式、关系、户籍地、常住地、残疾类别，市残联、区残联对上述信息进行核实，如果符合条件，可以免费为该儿童进行免费的康复服务。\r\n2.残疾儿童可以选择相应的机构进行免费的康复训练。\r\n3.需获取残疾儿童的头像用于康复训练时进行打卡。',
+      showCancel: true,
+      title: '残疾儿童康复服务管理 申请',
+      success: (result) => {
+        var confirm = result.confirm;
+        if (confirm) {
+          wx.navigateTo({
+              url: '/pages/login/register/register'
+          });
+        }
+      }
     });
   }
 })

@@ -6,7 +6,7 @@
   wx:index="index"
   wx:key="id"
   id="{{index}}"
-  title="{{item.s_months}}"
+  date="{{item.s_months}}"
   times="{{item.days1}}"
   times-less="{{item.days0-item.days1}}"
   data-sid="{{item.sid}}"

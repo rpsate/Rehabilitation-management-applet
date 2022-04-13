@@ -29,6 +29,7 @@ Page({
      */
     onShow: async function () {
         // 登录
+        /*************** 获取openid开始 ****************/
         var openid = wx.getStorageSync('openid');
         var getOpenidFun;
         if(openid == "" || openid == undefined) {
@@ -56,26 +57,33 @@ Page({
             //从登陆函数中获取openid
             openid = await getOpenidFun();
         }
+        /************** 获取openid结束 *****************/
+
+        setTimeout(() => {
+            wx.switchTab({
+                url: '/pages/index/index'
+            });
+        }, 1000);
 
         //获取用户信息
-        var userInfo = await app.getUserInfo({
-            openid: openid,
-            error: res => {
-                var code = res.code;
+        // var userInfo = await app.getUserInfo({
+        //     openid: openid,
+        //     error: res => {
+        //         var code = res.code;
 
-                if(code == "108") {
-                    setTimeout(() => {
-                        wx.navigateTo({
-                            url: '/pages/login/register/register'
-                        });
-                    }, 1000);
-                    return;
-                }
-            }
-        });
+        //         if(code == "108") {
+        //             setTimeout(() => {
+        //                 wx.navigateTo({
+        //                     url: '/pages/login/register/register'
+        //                 });
+        //             }, 1000);
+        //             return;
+        //         }
+        //     }
+        // });
 
-        if(userInfo != "" && userInfo != null) {
-            //判断是否出于审批过程中，如果正在审批中则自动跳转到审批进度页面
+        // if(userInfo != "" && userInfo != null) {
+            // 判断是否出于审批过程中，如果正在审批中则自动跳转到审批进度页面
             // try {
             //     var registerStatus = wx.getStorageSync('registerStatus');
             //     console.log("registerStatus", registerStatus)
@@ -90,13 +98,13 @@ Page({
             //     }
             // }catch {
             // }
-            console.log(userInfo)
-            setTimeout(() => {
-                wx.switchTab({
-                    url: '/pages/index/index'
-                });
-            }, 1000);
-        }
+            // console.log(userInfo)
+            // setTimeout(() => {
+            //     wx.switchTab({
+            //         url: '/pages/index/index'
+            //     });
+            // }, 1000);
+        // }
     },
 
     /**

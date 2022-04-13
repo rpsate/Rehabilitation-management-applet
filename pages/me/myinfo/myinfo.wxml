@@ -2,7 +2,8 @@
 <view class="container">
   <view class="item">
     <text>头像：</text>
-    <image class="face" bindtap="previewFace" src='{{baseUrl+userInfo.faceURL}}' mode='aspectFill'></image>
+    <image wx:if="{{userInfo.faceURL!=null}}" class="face" bindtap="previewFace" src='{{baseUrl+userInfo.faceURL}}' mode='aspectFill'></image>
+    <text wx:else bindtap="uploadFace">未上传</text>
   </view>
 
   <view class="item">
@@ -37,12 +38,12 @@
 
   <view class="item">
       <text>户籍：</text>
-      <text>{{userInfo.hjSheng + userInfo.hjShi + userInfo.hjQu + userInfo.hjAddress}}</text>
+      <text wx:if="{{userInfo.hjSheng}}">{{userInfo.hjSheng + userInfo.hjShi + userInfo.hjQu + userInfo.hjAddress}}</text>
   </view>
 
   <view class="item">
       <text>常住地：</text>
-      <text>{{userInfo.czSheng + userInfo.czShi + userInfo.czQu + userInfo.czAddress}}</text>
+      <text wx:if="{{userInfo.czSheng}}">{{userInfo.czSheng + userInfo.czShi + userInfo.czQu + userInfo.czAddress}}</text>
   </view>
 
   <view class="item">

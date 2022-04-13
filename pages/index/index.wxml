@@ -28,6 +28,7 @@
   <view class="content">
     <index-btn text="上课提醒" tip="{{notice_count}}" src="/pages/images/message.png" bindtap="notice"></index-btn>
     <index-btn text="我的档案" src="/pages/images/me.png" bindtap="myinfo"></index-btn>
-    <index-btn text="注册进度" src="/pages/images/process.png" bindtap="myProcess"></index-btn>
+    <index-btn wx:if="{{isRegister}}" text="注册进度" src="/pages/images/process.png" bindtap="myProcess"></index-btn>
+    <index-btn wx:else text="注册账号" src="/pages/images/process.png" bindtap="register"></index-btn>
   </view>
 </view>

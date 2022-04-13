@@ -31,8 +31,13 @@ Page({
     remarks: "",
     images: [],
     organ_data: [],
-    isRead: 0,
-    isModify: 0
+    isRead: 1,
+    isModify: 0,
+    allAddress: [
+      ['湖南省'], 
+      ['长沙市'],
+      ['高新区', '芙蓉区', '天心区', '岳麓区', '开福区', '雨花区', '望城区', '长沙县', '浏阳市', '宁乡市']
+    ]
   },
 
   /**
@@ -162,8 +167,15 @@ Page({
   },
   //户籍
   changeHousehold : function (e) {
+    var value = e.detail.value;
+    var allAddress = this.data.allAddress;
+    value = [
+      allAddress[0][value[0]],
+      allAddress[1][value[1]],
+      allAddress[2][value[2]]
+    ];
     this.setData({
-      household: e.detail.value
+      household: value
     });
   },
   //户籍地详细地址
@@ -174,8 +186,15 @@ Page({
   },
   //常住地
   changeResidence: function (e) {
+    var value = e.detail.value;
+    var allAddress = this.data.allAddress;
+    value = [
+      allAddress[0][value[0]],
+      allAddress[1][value[1]],
+      allAddress[2][value[2]]
+    ];
     this.setData({
-      residence: e.detail.value
+      residence: value
     });
   },
   //常住地详细地址
@@ -282,12 +301,21 @@ Page({
     if(!this.check()) {
       return;
     }
-    
+
     //获取培训机构id和openid
     var category_index = this.data.category_index
     var orgain_index = this.data.organ_index
     var schoolId = this.data.organ_data[category_index][orgain_index].id
     var openid = app.getOpenid();
+
+    if (openid == null || openid == "") {
+      wx.showToast({
+        title: "openid为空",
+        icon: 'none'
+      });
+      return;
+    }
+    
 
 
     //显示加载框
@@ -456,10 +484,8 @@ Page({
       message = "请选择培训机构"
     }else if (this.data.istrain_index == 0) {
       message = "请选择是否已参加培训"
-    }else if (this.data.istrain_index == 1) {
-      if (this.data.images.length == 0) {
-        message = "请上传证明材料"
-      }
+    }else if (this.data.istrain_index == 1 && this.data.images.length == 0) {
+      message = "请上传证明材料"
     }else if(this.data.isRead == 0) {
       message = "请阅读并同意《用户隐私保护协议》"
     }

@@ -108,9 +108,27 @@ Page({
   goOther: function(res) {
     var id = res.detail.id;
     var url = this.data.otherList[id][2];
-    wx.navigateTo({
-      url: url
-    });
+    if(id == 6) {
+      wx.showModal({
+        cancelText: '拒绝',
+        confirmText: '允许',
+        content: '为了核对您的注册信息是否正确，查看"我的档案"会要显示您的姓名、性别、身份证号、家长姓名、联系方式、关系、户籍地、常住地、残疾类别、所选机构等信息。',
+        showCancel: true,
+        title: '残疾儿童康复服务管理 申请',
+        success: (result) => {
+          var confirm = result.confirm;
+          if (confirm) {
+            wx.navigateTo({
+              url: url
+            });
+          }
+        }
+      });
+    }else {
+      wx.navigateTo({
+        url: url
+      });
+    }
   },
   login: function(res) {
     wx.getStorage({

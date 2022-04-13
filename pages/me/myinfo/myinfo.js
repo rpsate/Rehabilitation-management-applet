@@ -124,7 +124,7 @@ Page({
 
     wx.showActionSheet({
       itemList: ['修改人脸信息', '修改我的档案'],
-      alertText: 'alertText',
+      alertText: '菜单',
       itemColor: 'itemColor',
       success: (res) => {
         console.log(res);
@@ -222,7 +222,68 @@ Page({
     var url = this.data.baseUrl + this.data.userInfo.faceURL;
     console.log(url);
     wx.previewImage({
+      current: url,
       urls: [url],
+    });
+  },
+  uploadFace: async function (e) {
+    var userInfo = await app.getUserInfo();
+    //修改人脸信息
+    wx.chooseImage({
+      count: 1,
+      sizeType: ["compresses"],
+      //sourceType: [],
+      success: (result) => {
+        var filePath = result.tempFilePaths[0];
+        var appUrl = config.appUrl;
+        
+        wx.showLoading({
+          title: '上传中······',
+          mask: true
+        });
+
+        wx.uploadFile({
+          url: appUrl + "/wxStudent/addFacePicture",
+          filePath: filePath,
+          name: 'personphotos',
+          header: { "contentType": "multipart/form-data" },
+          formData: {
+            "sid": userInfo.id,
+          },
+          success: (res)=> {
+            if(res.statusCode == 200) {
+              wx.showModal({
+                confirmColor: '#1a8be9',
+                showCancel: false,
+                title: '提示',
+                content:'上传成功!'
+              });
+            }else {
+              wx.showModal({
+                confirmColor: '#1a8be9',
+                showCancel: false,
+                title: '提示',
+                content:'上传失败!'
+              });
+            }
+            console.log(res);
+          },
+          complete: async res => {
+            wx.hideLoading({
+              success: (res) => {},
+            });
+
+            //刷新faceURL
+            wx.removeStorageSync('userInfo');
+            var newUserInfo = await app.getUserInfo()
+            var userInfo = this.data.userInfo;
+            userInfo.faceURL = newUserInfo.faceURL;
+            this.setData({
+              userInfo: userInfo
+            });
+          }
+        });
+      }
     });
   }
 })

@@ -7,6 +7,6 @@
       <text>出勤{{times}}次</text>
       <view class="btn" bindtap="getDetail">详情</view>
     </view>
-    <view class="times-less">缺勤{{timesLess}}次</view>
+    <!-- <view class="times-less">缺勤{{timesLess}}次</view> -->
   </view>
 </view>
