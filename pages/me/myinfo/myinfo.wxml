@@ -1,7 +1,7 @@
 <!--pages/me/myinfo/myinfo.wxml-->
 <view class="container">
   <view class="item">
-    <text>头像：</text>
+    <text>图片：</text>
     <image wx:if="{{userInfo.faceURL!=null}}" class="face" bindtap="previewFace" src='{{baseUrl+userInfo.faceURL}}' mode='aspectFill'></image>
     <text wx:else bindtap="uploadFace">未上传</text>
   </view>

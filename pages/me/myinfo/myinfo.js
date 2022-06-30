@@ -123,15 +123,14 @@ Page({
     var userInfo = await app.getUserInfo();
 
     wx.showActionSheet({
-      itemList: ['修改人脸信息', '修改我的档案'],
+      itemList: ['修改图片信息', '修改我的档案'],
       alertText: '菜单',
-      itemColor: 'itemColor',
       success: (res) => {
         console.log(res);
         var tapIndex = res.tapIndex;
         switch(tapIndex) {
           case 0:
-            //修改人脸信息
+            //修改图片信息
             wx.chooseImage({
               count: 1,
               sizeType: ["compresses"],
@@ -228,7 +227,7 @@ Page({
   },
   uploadFace: async function (e) {
     var userInfo = await app.getUserInfo();
-    //修改人脸信息
+    //修改图片信息
     wx.chooseImage({
       count: 1,
       sizeType: ["compresses"],

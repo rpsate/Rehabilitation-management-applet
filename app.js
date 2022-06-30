@@ -59,7 +59,6 @@ App({
           data: userInfo
         });
       }catch {
-        console.log("fail")
         userInfo = ""
       }
     }

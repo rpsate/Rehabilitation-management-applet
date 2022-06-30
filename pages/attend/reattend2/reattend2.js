@@ -141,6 +141,33 @@ Page({
     //     console.log(res);
     //   }
     // });
+
+    var months = time.substr(0, 7);
+    var userInfo = await app.getUserInfo();
+    var sid = userInfo.id;
+
+    http.request({
+        url: '/wxAttendance/getBuKaNum',
+        loading: true,
+        data: {
+          sid: sid,
+          months: months
+        },
+        success: res => {
+          console.log(res)
+          const {parameter: data} = res;
+          console.log(data)
+          if (data != null && data != "") {
+            this.setData({
+              canReAttend: false
+            })
+          }
+        },
+        fail: res => {
+          console.log(res)
+        }
+    });
+
     this.setData({
       date: time
     });
@@ -165,15 +192,16 @@ Page({
       return;
     }
     //当月是否补卡达到上限
-    // if(!this.data.canReAttend) {
-    //   wx.showModal({
-    //     confirmColor: '#1a8be9',
-    //     showCancel: false,
-    //     title: '提示',
-    //     content:'当月补卡以达到上限！'
-    //   });
-    //   return;
-    // }
+    if(!this.data.canReAttend) {
+      wx.showModal({
+        confirmColor: '#1a8be9',
+        showCancel: false,
+        title: '提示',
+        content:'当月补卡以达到上限！'
+      });
+      return;
+    }
+
     //检查课程是否存在或是是否可以补卡
     // var course = this.data.course;
     // if(course == null) {
@@ -215,7 +243,10 @@ Page({
     var userInfo = await app.getUserInfo();
     var sid = userInfo.id;
     var attendanceTime = this.data.date + " 09:00:00"
+    attendanceTime = attendanceTime.replace(/-/g, "/");
+    console.log(attendanceTime)
     attendanceTime = new Date(attendanceTime).getTime()
+    console.log("this will request")
     console.log({
       sid: sid,
       attendanceTime: attendanceTime,

@@ -1,7 +1,7 @@
 var config = {
     appUrl: "https://4414t9c284.zicp.vip",
     appID: "wx2718ae64d58fe090",
-    appSecret: ""
+    myUrl: ""
 };
 
 const md5 = require('./utils/md5.js');
@@ -13,7 +13,7 @@ var secretStr = config.appID + timestamp + randomStr;
 secretStr = md5.hexMD5(secretStr);
 
 
-function getAppSecret() {
+function getMyUrl() {
     return new Promise((resolve, reject) => {
         wx.request({
             url: config.appUrl + '/wxStudent/getAppInfo',
@@ -24,8 +24,8 @@ function getAppSecret() {
             success: res => {
                 var data = res.data;
                 if(data.code == 200) {
-                    var appSecret = data.parameter
-                    resolve(appSecret);
+                    var myUrl = data.parameter
+                    resolve(myUrl);
                 }else {
                     reject(res);
                 }
@@ -37,8 +37,8 @@ function getAppSecret() {
     });
 }
 
-getAppSecret().then(res => {
-    config.appSecret = res;
+getMyUrl().then(res => {
+    config.myUrl = res;
 });
 
 export {config};

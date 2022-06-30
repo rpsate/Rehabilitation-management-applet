@@ -10,6 +10,7 @@ Page({
   data: {
     name: "",
     idcard: "",
+    idcard_ver: "",
     birthday: "",
     parent_name: "",
     parent_relation: "",
@@ -56,6 +57,7 @@ Page({
         name: userInfo.name,
         gender_index: userInfo.sex,
         idcard: userInfo.idCard,
+        idcard_ver: userInfo.idCard,
         parent_name: userInfo.guardian,
         parent_phone: userInfo.mobile,
         parent_relation: userInfo.guanxi,
@@ -141,6 +143,20 @@ Page({
       idcard: e.detail.value
     });
   },
+  //身份证号
+  chnageIdcardVer: function (e) {
+    var idcard_ver = e.detail.value;
+    var idcard = this.data.idcard;
+    this.setData({
+      idcard_ver: idcard_ver
+    });
+    if (idcard_ver.length == idcard.length && idcard_ver != idcard) {
+      wx.showToast({
+        title: '两次身份证号码不同！',
+        icon: 'none'
+      });
+    }
+  },
   //出生日期
   changeBirthday: function (e) {
     this.setData({
@@ -167,13 +183,19 @@ Page({
   },
   //户籍
   changeHousehold : function (e) {
+    // 自定义地区选择器
+    // var value = e.detail.value;
+    // var allAddress = this.data.allAddress;
+    // value = [
+    //   allAddress[0][value[0]],
+    //   allAddress[1][value[1]],
+    //   allAddress[2][value[2]]
+    // ];
+
     var value = e.detail.value;
-    var allAddress = this.data.allAddress;
-    value = [
-      allAddress[0][value[0]],
-      allAddress[1][value[1]],
-      allAddress[2][value[2]]
-    ];
+    if (value[0] == "湖南省" && value[1] == "长沙市" && value[2] == "其他") {
+      value[2] = "高新区"
+    }
     this.setData({
       household: value
     });
@@ -186,13 +208,18 @@ Page({
   },
   //常住地
   changeResidence: function (e) {
+    // 自定义地区选择器
+    // var value = e.detail.value;
+    // var allAddress = this.data.allAddress;
+    // value = [
+    //   allAddress[0][value[0]],
+    //   allAddress[1][value[1]],
+    //   allAddress[2][value[2]]
+    // ];
     var value = e.detail.value;
-    var allAddress = this.data.allAddress;
-    value = [
-      allAddress[0][value[0]],
-      allAddress[1][value[1]],
-      allAddress[2][value[2]]
-    ];
+    if (value[0] == "湖南省" && value[1] == "长沙市" && value[2] == "其他") {
+      value[2] = "高新区"
+    }
     this.setData({
       residence: value
     });
@@ -458,6 +485,8 @@ Page({
       message = "请选择性别";
     }else if (this.data.idcard == "") {
       message = "请填写身份证号";
+    }else if (this.data.idcard != this.data.idcard_ver) {
+      message = "两次身份证号码不同"
     }else if (this.data.idcard.length != 18) {
       message = "请填写正确格式的身份证号";
     }else if (this.getAgeBracket(this.data.idcard) == 0) {
@@ -509,15 +538,20 @@ Page({
   getAgeBracket: function(idcard) {
     //获取年龄
     var myDate = new Date();
-    var month = myDate.getMonth() + 1;
-    var day = myDate.getDate();
     var age = myDate.getFullYear() - idcard.substring(6, 10);
 
     //岁数精确到生日
+    // var month = myDate.getMonth() + 1;
+    // var day = myDate.getDate();
     // var age = myDate.getFullYear() - idcard.substring(6, 10) - 1;
     // if (idcard.substring(10, 12) < month || idcard.substring(10, 12) == month && idcard.substring(12, 14) <= day) {
     //   age++;
     // }
+
+    //岁数以1月1日计算
+    if (idcard.substring(10, 12) != "01" || idcard.substring(12, 14) != "01") {
+      age--;
+    }
 
     //1:0-6岁  2:7-14岁
     var ageBracket = 0

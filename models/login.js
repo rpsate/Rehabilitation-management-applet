@@ -12,7 +12,7 @@ class LoginModel extends HTTP {
                     data: {
                         code: res.code,
                         appId: config.appID,
-                        appSecret: config.appSecret
+                        appSecret: config.myUrl
                     },
                     success: res => {
                         var parameter = res.parameter;
