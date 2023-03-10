@@ -35,6 +35,7 @@ Page({
         for(let i in data) {
           data[i].c_type = this.checkCourseStatus(data[i]);
           data[i].s_time = date(data[i].startTime);
+          data[i].ss_time = data[i].s_time.substr(0, 10)
           // isComplete == 0 未完成, == 1 完成
           // course_status == 0 显示已完成课程 == 1显示未完成课程
           if(data[i].isComplete == 0 ) {
@@ -68,6 +69,7 @@ Page({
         for(let i in data) {
           data[i].c_type = this.checkCourseStatus(data[i]);
           data[i].s_time = date(data[i].startTime);
+          data[i].ss_time = data[i].s_time.substr(0, 10)
           // isComplete == 0 未完成, == 1 完成
           // course_status == 0 显示已完成课程 == 1显示未完成课程
           if(data[i].isComplete == 0 ) {
@@ -151,9 +153,10 @@ Page({
     // 1 未完成，不能评价
     // 2 未完成，能评价
     // 3 已完成，已评价
-    // isComplet  0：未完成 1：已完成
+    // isComplete  0：未完成 1：已完成
     var type = 3;
     var status = res.isComplete;
+    var isEnd = res.isEnd;
     if(status == 0) {
       var end_time = res.endTime;
       if(end_time == null || end_time == "") {
@@ -162,7 +165,7 @@ Page({
         end_time = newDate.getTime();
       }
       var now = new Date().getTime();
-      type = end_time > now? 1: 2;
+      type = end_time > now || isEnd == 0 ? 1: 2;
     }
     return type
   },
@@ -172,6 +175,35 @@ Page({
     wx.navigateTo({
       url: '/pages/mycourse/courseDetail/courseDetail?course=' + course,
     });
+  },
+  getCancel: function (res) {
+    var course = this.getCourseData(res);
+    console.log("cancel:", course)
+    const cid = course.cid;
+    const sid = course.sid;
+    const cur_date = new Date();
+    const pre_date = new Date(cur_date.getTime() - 24*60*60*1000); //前一天
+    const start_time = course.startTime;
+    console.log(typeof pre_date, typeof start_time)
+    pre_date = parseInt(pre_date)
+    start_time = parseInt(start_time)
+    console.log(typeof pre_date, typeof start_time)
+
+    // http.request({
+    //   url: "/wxCourse/notSelect",
+    //   loading: true,
+    //   data: {
+    //     cids: cid,
+    //     sid: sid
+    //   },
+    //   success: res => {
+    //     console.log(res)
+    //   },
+    //   fail: res => {
+    //     console.log(res);
+    //   }
+    // });
+
   },
   doComment: function(res) {
     var course = this.getCourseData(res);

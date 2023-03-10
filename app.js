@@ -27,7 +27,17 @@ App({
     if (params == undefined) {
       var params = new Object();
     }
-    var userInfo = wx.getStorageSync('userInfo');
+    try {
+      var getNewData = params.getNewData;
+    }catch {
+      var getNewData = null;
+    }
+    if (params.getNewData == null || !getNewData) {
+      var userInfo = wx.getStorageSync('userInfo');
+    } else {
+      var userInfo = ''
+    }
+    
     if(userInfo == "" || userInfo == undefined) {
       //没有就来获取
       try {

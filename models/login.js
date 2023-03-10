@@ -5,6 +5,12 @@ class LoginModel extends HTTP {
     _login(params) {
         wx.login({
             success: res => {
+                const p = {
+                    code: res.code,
+                    appId: config.appID,
+                    appSecret: config.myUrl
+                };
+                console.log(p);
                 params.that.request({
                     url: "/wxStudent/getOpenId",
                     loading: params.loading,
@@ -15,6 +21,7 @@ class LoginModel extends HTTP {
                         appSecret: config.myUrl
                     },
                     success: res => {
+                        console.log("login:", res)
                         var parameter = res.parameter;
                         var openid = JSON.parse(parameter).openid;
                         wx.setStorageSync('openid', openid);

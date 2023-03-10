@@ -3,10 +3,12 @@ const app = getApp()
 import { HTTP } from "../../utils/http";
 import {config} from "../../config";
 
+const http = new HTTP();
 Page({
   data: {
     notice_count: "",
-    isRegister: true
+    isRegister: true,
+    isActiveUpload: true
   },
   onLoad(options) {
     // app.getUserInfo({
@@ -34,6 +36,30 @@ Page({
         }
       }
     });
+
+    http.request({
+      url: "/wxStudent/getIsShow",
+      // loading: params.loading,
+      success: async res => {
+        const userInfo = await app.getUserInfo({
+          getNewData: true
+        });
+        console.log('dd:', userInfo)
+        var userStatus = userInfo.status;
+        var parameter = res.parameter || 0;
+        var isActiveUpload = true;
+        console.log('par sts', parameter, userStatus)
+        if (parameter == 0 && userStatus <= 1) {
+          isActiveUpload = false;
+        }
+        this.setData({
+          isActiveUpload: isActiveUpload
+        })
+      },
+      error: res => {
+          console.log(res)
+      }
+    })
   },
   onShow: async function () {
     //判断未读信息条数
@@ -106,7 +132,14 @@ Page({
       url: '/pages/attend/reattend2/reattend2'
     });
   },
-  uploadFace: async userInfo => {
+  uploadFace: async function userInfo() {
+    if (this.data.isActiveUpload == false) {
+      wx.showToast({
+        title: '机构审核通过之后才能上传头像',
+        icon: 'none'
+      });
+      return;
+    }
     var userInfo = await app.getUserInfo();
 
     wx.showModal({

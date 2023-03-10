@@ -60,7 +60,7 @@
 
   <view class="item">
     <text>详细地址：</text>
-    <input placeholder="请填写户籍详细地址" maxlength="30" type="text" bindblur="changeHouseholdDetail" value="{{household_detail}}"/>
+    <input placeholder="请填写户籍详细地址（不包含省市区）" maxlength="30" type="text" bindblur="changeHouseholdDetail" value="{{household_detail}}"/>
   </view>
 
   <view class="item space-between">
@@ -79,7 +79,7 @@
 
   <view class="item">
     <text>详细地址：</text>
-    <input placeholder="请填写常住地详细地址" maxlength="30" type="text" bindblur="changeResidenceDetail" value="{{residence_detail}}" />
+    <input placeholder="请填写常住地详细地址（不包含省市区）" maxlength="30" type="text" bindblur="changeResidenceDetail" value="{{residence_detail}}" />
   </view>
 
   <view class="item">

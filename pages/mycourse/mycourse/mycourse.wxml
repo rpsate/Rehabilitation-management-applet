@@ -14,13 +14,15 @@
     wx:key="id"
     course="{{item.courseName}}"
     teacher="{{item.teacher}}"
-    time="{{item.s_time}}"
+    price="{{item.moneyStr}}"
+    time="{{item.ss_time}}"
     type="{{item.c_type}}"
     id="{{index}}"
     data-data="s_data"
     data-status="{{course_status}}"
     data-cid="{{item.cid}}"
     bind:getDetail="getDetail"
+    bind:getCancel="getCancel"
     bind:doComment="doComment"
     bind:viewComment="viewComment">
   </course-list>
@@ -33,6 +35,7 @@
     wx:key="id"
     course="{{item.courseName}}"
     teacher="{{item.teacher}}"
+    price="{{item.moneyStr}}"
     time="{{item.s_time}}"
     type="{{item.c_type}}"
     id="{{index}}"
@@ -40,6 +43,7 @@
     data-status="{{course_status}}"
     data-cid="{{item.cid}}"
     bind:getDetail="getDetail"
+    bind:getCancel="getCancel"
     bind:doComment="doComment"
     bind:viewComment="viewComment">
   </course-list>

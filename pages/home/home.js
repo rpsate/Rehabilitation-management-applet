@@ -1,7 +1,7 @@
 // pages/home/home.js
 const app = getApp()
 import { LoginModel} from "../../models/login.js";
-var loginModel = new LoginModel();
+const loginModel = new LoginModel();
 Page({
     /**
      * 页面的初始数据
@@ -46,24 +46,35 @@ Page({
                         }
                     }).catch(res => {
                         wx.navigateTo({
-                        url: '/pages/error/error',
+                            url: '/pages/error/error',
                         });
                         return;
                     });  
                 });
             }
         }
+        
         if(getOpenidFun) {
-            //从登陆函数中获取openid
-            openid = await getOpenidFun();
+            try {
+                //从登陆函数中获取openid
+                openid = await getOpenidFun();
+            } catch {
+                console.log("error");
+            }
         }
+        
+        
         /************** 获取openid结束 *****************/
-
-        setTimeout(() => {
+        const location2index = setInterval(() => {
+            const pages = getCurrentPages();
+            const currentPage = pages[pages.length-1];
+            if (currentPage.route != 'pages/home/home') {
+                clearInterval(location2index);
+            }
             wx.switchTab({
                 url: '/pages/index/index'
             });
-        }, 1000);
+        }, 2000);
 
         //获取用户信息
         // var userInfo = await app.getUserInfo({

@@ -21,6 +21,10 @@ Component({
       type: "String",
       value: '2021-10-10'
     },
+    price: {
+      type: "Number",
+      value: 0
+    },
     isSelect: {
       // 0 未选 ,1 已选
       type: "String",
@@ -34,9 +38,9 @@ Component({
   data: {
     btnText: [
       ["未选", "已选"],
-      "评价", // type=1 不能评价
-      "评价", // type=2 能评价
-      "查看评价"  // type=3 已经评价
+      "确认", // type=1 不能评价
+      "确认", // type=2 能评价
+      "查看确认"  // type=3 已经评价
     ],
     btnStyle: [
       ["not-select", ""],
@@ -69,6 +73,12 @@ Component({
     getDetail: function (res) {
       var id = res.currentTarget.id;
       this.triggerEvent("getDetail", {
+        id: id,
+      }, {});
+    },
+    getCancel: function (res) {
+      var id = res.currentTarget.id;
+      this.triggerEvent("getCancel", {
         id: id,
       }, {});
     },

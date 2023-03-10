@@ -2,16 +2,21 @@
 <view class="container">
   <view class="line"></view>
   <view class="container-inner">
-    <view class="course">{{course}}</view>
+    <view class="course" wx:if="{{false}}">{{course}}</view>
     <view class="teacher">
-      <text>老师：{{teacher}}</text>
+      <text></text>
+      <!-- <text>老师：{{teacher}}</text> -->
       <view class="btn" bindtap="getDetail">详情</view>
     </view>
     <view class="time">
-      <text>时间：{{time}}</text>
+      <text>上课时间：{{time}}</text>
       <!-- if type==0 课程未选，显示按钮1。if type==1/2/3 课程已选，显示按钮2 -->
       <view wx:if="{{type==0}}" class="btn {{btnStyle[0][isSelect]}}" bindtap="changeSelect" >{{btnText[0][isSelect]}}</view>
       <view wx:elif="{{type!=1}}" class="btn {{btnStyle[type]}}" bindtap="comment">{{btnText[type]}}</view>
     </view>
+    <view class="price" wx:if="{{price!=null}}">
+      <text>课程价格：{{price}}</text>
+      <view class="btn" bindtap="getCancel">取消</view>
+  </view>
   </view>
 </view>

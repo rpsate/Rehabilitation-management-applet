@@ -6,7 +6,7 @@
   <view class="content">
     <index-btn text="我的课程" src="/pages/images/my_course.png" bindtap="myCourse"></index-btn>
     <index-btn text="选择课程" src="/pages/images/select_course.png" bindtap="selectCourse"></index-btn>
-    <index-btn text="课程推荐" src="/pages/images/recommend.png" bindtap="commentCourse"></index-btn>
+    <!-- <index-btn text="课程推荐" src="/pages/images/recommend.png" bindtap="commentCourse"></index-btn> -->
   </view>
 </view>
 

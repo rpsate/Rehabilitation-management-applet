@@ -499,11 +499,11 @@ Page({
       message = "请填写正确的手机号码"
     }else if (this.data.parent_relation == "") {
       message = "请填写家长与学员的关系"
-    }else if (this.data.household == "") {
+    }else if (this.data.household == "" || this.data.household.length < 3) {
       message = "请选择户籍地";
     }else if (this.data.household_detail == "") {
       message = "请填写户籍地详细地址";
-    }else if (this.data.residence == "") {
+    }else if (this.data.residence == "" || this.data.residence.length < 3) {
       message = "请选择常住地";
     }else if (this.data.residence_detail == "") {
       message = "请填写常住地详细地址";
@@ -549,15 +549,15 @@ Page({
     // }
 
     //岁数以1月1日计算
-    if (idcard.substring(10, 12) != "01" || idcard.substring(12, 14) != "01") {
-      age--;
-    }
+    // if (idcard.substring(10, 12) != "01" || idcard.substring(12, 14) != "01") {
+    //   age--;
+    // }
 
     //1:0-6岁  2:7-14岁
     var ageBracket = 0
     if(age >= 0 && age < 7) {
       ageBracket = 1
-    }else if(age >= 7 && age < 15) {
+    }else if(age >= 7 && age <= 15) {
       ageBracket = 2
     }
     return ageBracket

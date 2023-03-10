@@ -1,5 +1,5 @@
 var config = {
-    appUrl: "https://4414t9c284.zicp.vip",
+    appUrl: "https://cjetkfgl.com",
     appID: "wx2718ae64d58fe090",
     myUrl: ""
 };
@@ -21,16 +21,21 @@ function getMyUrl() {
                 key: secretStr,
                 timestamp: timestamp
             },
+
             success: res => {
                 var data = res.data;
+                console.log('s', data)
                 if(data.code == 200) {
                     var myUrl = data.parameter
                     resolve(myUrl);
                 }else {
+                    showRequestInfo()
+                    console.log('f', res)
                     reject(res);
                 }
             },
             fail: res => {
+                console.log('e', res)
                 reject(res);
             }
           })

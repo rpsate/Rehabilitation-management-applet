@@ -24,7 +24,8 @@ Page({
         "2": "当天打卡审批中！",
         "3": "当天补卡已被驳回！",
         "4": "当天补卡审批已通过！"
-      }
+      },
+      endData: 'now'
     }
 
   },
@@ -33,6 +34,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const end = date(new Date()).substr(0, 10);
+    this.setData({
+      endData: end
+    })
     //从考勤详细进到次页面
     if(options.course) {
       var course = JSON.parse(options.course);

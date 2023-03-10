@@ -143,7 +143,7 @@ Page({
       }
       course = JSON.stringify(course);
       wx.navigateTo({
-        url: '/pages/attend/reattend/reattend?course=' + course,
+        url: '/pages/attend/reattend2/reattend2?course=' + course,
       });
     }else {
       //审批中

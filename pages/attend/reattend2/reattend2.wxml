@@ -2,7 +2,7 @@
 <view class="container">
   <view class="item">
     <text> 日期：</text>
-    <picker mode="date" start="1900-01-01" end="now" bindchange="changeDate" disabled="{{isDisabled}}">{{date}}</picker>
+    <picker mode="date" start="1900-01-01" end="{{endData}}" bindchange="changeDate" disabled="{{isDisabled}}">{{date}}</picker>
   </view>
 </view>
 

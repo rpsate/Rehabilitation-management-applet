@@ -15,7 +15,7 @@ Page({
     otherList: [
       ["./images/my_course.png", "我的课程", "/pages/mycourse/mycourse/mycourse"],
       ["./images/select_course.png", "选择课程", "/pages/mycourse/selectCourse/selectCourse"],
-      ["./images/recommend.png", "课程推荐", "/pages/mycourse/recommendCourse/recommendCourse"],
+      // ["./images/recommend.png", "课程推荐", "/pages/mycourse/recommendCourse/recommendCourse"],
       ["./images/attendance.png", "我的考勤", "/pages/attend/attend/attend"],
       ["./images/supplement.png", "补打卡", "/pages/attend/reattend/reattend"],
       ["./images/message.png", "上课提醒", "/pages/mycourse/notice/notice"],
